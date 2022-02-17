@@ -1,0 +1,2049 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>magpy API documentation</title>
+<meta name="description" content="Magpy is a Python(3) library that can communicate and interact with
+Magicard&#39;s _Generation 2_ printers …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9;--table-border-color:hsl(0,0%,95%);--table-alternate-bg:hsl(0,0%,97%);--table-header-bg:hsl(0,0%,80%)}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}table{margin:0 auto;border-collapse:collapse;width:100%}table td{padding:3px 10px;border:1px var(--table-border-color) solid}table thead{background:var(--table-header-bg);white-space:nowrap}table thead td{font-weight:700;border:none}table thead th{padding:3px 20px}table thead tr{border:1px var(--table-header-bg) solid}table tbody tr:nth-child(2n){background:var(--table-alternate-bg)}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML" integrity="sha256-kZafAc6mZvK3W3v1pHOcUix30OHQN6pU/NO2oFkqZVw=" crossorigin></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Package <code>magpy</code></h1>
+</header>
+<section id="section-intro">
+<p>Magpy is a Python(3) library that can communicate and interact with
+Magicard's <em>Generation 2</em> printers.</p>
+<h2 id="installation">Installation</h2>
+<p>To install Magpy, run the following command:</p>
+<pre><code class="language-shell">pip3 install magpy
+</code></pre>
+<h3 id="additional-steps-for-linux">Additional steps for Linux</h3>
+<p>To communicate with USB printers on Linux you must ensure that the application
+has permission to access the relevant device files. On Ubuntu this is most
+easily achieved by either running as <code>root</code>, or by creating a udev rule; for
+example, create a file <code>/etc/udev/rules.d/98-magicard.rules</code> with the following
+contents:</p>
+<pre><code class="language-shell">SUBSYSTEM==&quot;usb&quot;, ATTRS{idVendor}==&quot;0c1f&quot;, ATTRS{idProduct}==&quot;0001&quot;, MODE:=&quot;0666&quot;
+</code></pre>
+<h3 id="additional-steps-for-windows">Additional steps for Windows</h3>
+<p>To communicate with USB printers on Windows you must swap the default kernel
+driver, <code>usbprint</code> for <code>WinUSB</code>. This can be done with
+<a href="https://zadig.akeo.ie/">Zadig</a>. Note that this will prevent Magicard's Windows
+driver, and their test tool, from being able to communicate with Magicard
+printers over USB.</p>
+<p><code>WinUSB</code> can be swapped back to <code>usbprint</code> 'uninstalling' the device (Device
+Manager -&gt; Universal Serial Bus devices -&gt; Right-click on printer -&gt; Uninstall
+device -&gt; tick 'Delete the driver software for this device' then click
+'Uninstall')</p>
+<h2 id="examples">Examples</h2>
+<h3 id="monitor-printer-for-errors-and-display-them-on-screen">Monitor printer for errors and display them on screen</h3>
+<pre><code class="language-python">from magpy.printer_event_manager import PrinterEventManager
+from magpy.printer_event_manager.events import EventId, EventData
+
+# Make a PrinterEventManager object, connected to '1.2.3.4'.
+pem = PrinterEventManager(&quot;1.2.3.4&quot;)
+
+# Event handler.
+def on_error_raised(params: EventData) -&gt; None:
+    # Create the error code.
+    error = params[0].decode() + &quot;:&quot; + params[1].decode()
+
+    # Print the error code.
+    print(f&quot;Printer raised {error} error&quot;)
+
+# Register the event handler.
+pem.register_handler(EventId.ERROR_RAISED, on_error_raised)
+
+# Stream and manage events forever.
+pem.events_forever()
+</code></pre>
+<h3 id="toggle-hand-feed-mode">Toggle hand-feed mode</h3>
+<pre><code class="language-python">from magpy.connection.network_connection import NetworkConnection
+from magpy.printer import Printer
+
+# Make a Printer object, connected to '1.2.3.4'.
+printer = Printer(NetworkConnection(&quot;1.2.3.4&quot;))
+
+# Get the current hand-feed mode value.
+hand_fed = printer.get(&quot;operation-hand-feed&quot;)
+
+# Invert hand-feed and print the result.
+hand_fed = printer.set(
+    &quot;operation-hand-feed&quot;, &quot;false&quot; if hand_fed == &quot;true&quot; else &quot;true&quot;
+)
+
+# Print the result.
+print(f&quot;Hand feed = {hand_fed}&quot;)
+</code></pre>
+<h3 id="retrieve-a-printer-report-query-and-save-it-to-disk-over-usb">Retrieve a printer report/ "query" and save it to disk over USB.</h3>
+<pre><code class="language-python">from magpy.connection.usb_connection import UsbConnection
+from magpy.printer import Printer
+
+# List all available USB printers.
+conns = UsbConnection.get_available_devices()
+print(&quot;\n&quot;.join([str(c) for c in conns]))
+
+# Make a Printer object connected to the first device in the list.
+printer = Printer(UsbConnection(conns[0]))
+
+# Download a printer report.
+report = printer.get_report()
+
+# Write the report to disk.
+with open(&quot;report.zip&quot;, &quot;wb&quot;) as f:
+    f.write(report)
+</code></pre>
+<h2 id="printer-settings">Printer Settings</h2>
+<p>Printer settings can be read and written using the <code>Printer</code> class's <code>get()</code>
+and <code>set()</code> methods, respectively. (The permissible limits for printer settings
+can also be obtained via the <code>Printer</code> class's <code>get_limits()</code> method.)</p>
+<p>The available printer settings are as follows:</p>
+<h3 id="identity-information">Identity Information</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Data type</th>
+<th>R/RW</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id-version-system</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The overall system software version number. Maximum length 31 characters.</td>
+</tr>
+<tr>
+<td><code>id-version-printer-app</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The installed printer application version. Maximum length 31 characters.</td>
+</tr>
+<tr>
+<td><code>id-version-engine-firmware</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The installed print engine MCU firmware version. Maximum length 31 characters.</td>
+</tr>
+<tr>
+<td><code>id-version-mag-firmware</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The installed magnetic encoder MCU firmware version. Maximum length 31 characters.</td>
+</tr>
+<tr>
+<td><code>id-printer-serial</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The printer serial number. Maximum length 31 characters.</td>
+</tr>
+<tr>
+<td><code>id-module-serial</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The CPU module serial number. Maximum length 31 characters.</td>
+</tr>
+<tr>
+<td><code>id-main-board-serial</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The print engine control board serial number. Maximum length 31 characters.</td>
+</tr>
+<tr>
+<td><code>id-printhead-serial</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The printhead serial number. Maximum length 31 characters.</td>
+</tr>
+<tr>
+<td><code>id-printhead-resistance</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The printhead resistance, from 1,000 to 9,999.</td>
+</tr>
+<tr>
+<td><code>id-mag-encoder-serial</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The mag encoder board serial number (or blank if no mag PCB is fitted). Maximum length 31 characters.</td>
+</tr>
+<tr>
+<td><code>id-model-name</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The printer model name (as used in USB string descriptors). Maximum length 31 characters.</td>
+</tr>
+<tr>
+<td><code>id-model-lcd-text</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The printer model name as displayed on the LCD. Maximum length 16 characters.</td>
+</tr>
+<tr>
+<td><code>id-location</code></td>
+<td>String</td>
+<td>Read-write</td>
+<td>The printer's location.</td>
+</tr>
+<tr>
+<td><code>id-capability-mag</code></td>
+<td>Boolean</td>
+<td>Read-only</td>
+<td>True if and only if the printer is capable of magnetic encoding.</td>
+</tr>
+<tr>
+<td><code>id-capability-mag-raw</code></td>
+<td>Boolean</td>
+<td>Read-only</td>
+<td>True if and only if the printer is fitted with an I<sup>2</sup>C magnetic encoder and is therefore capable of reading raw data from magnetic stripes.</td>
+</tr>
+<tr>
+<td><code>id-capability-duplex</code></td>
+<td>Boolean</td>
+<td>Read-only</td>
+<td>True if and only if the printer is capable of duplex printing.</td>
+</tr>
+<tr>
+<td><code>id-capability-chip</code></td>
+<td>Boolean</td>
+<td>Read-only</td>
+<td>True if and only if the printer is capable of either contactless or contact chip encoding.
+<br/><br/> <strong>Note: As well as this capabillity, a contact(less) chip encoder is also required in order to use perform contact or contactless chip encoding.</strong></td>
+</tr>
+<tr>
+<td><code>id-capability-600dpi</code></td>
+<td>Boolean</td>
+<td>Read-only</td>
+<td>True if and only if the printer is capable of printing at 600 dpi resolution (along the longer axis).</td>
+</tr>
+<tr>
+<td><code>id-capability-wifi</code></td>
+<td>Boolean</td>
+<td>Read-only</td>
+<td>True if and only if the printer is capable of connecting to a network over WiFi.
+<br/><br/> <strong>Note: As well as this capabillity, a WiFi dongle is also required in order to use WiFi.</strong></td>
+</tr>
+<tr>
+<td><code>id-capability-web-ui</code></td>
+<td>Boolean</td>
+<td>Read-only</td>
+<td>True if and only if the printer is capable of running the web UI.</td>
+</tr>
+<tr>
+<td><code>id-manufacturer</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The printer manufacturer. Maximum length 31 characters.</td>
+</tr>
+<tr>
+<td><code>id-usb-vendor</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The USB vendor ID. This is always 3103 decimal (0c1f hex), even for custom-branded models.</td>
+</tr>
+<tr>
+<td><code>id-usb-product</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The USB product ID, from 0 to 65535.</td>
+</tr>
+<tr>
+<td><code>id-dealer-code</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The printer's dealer code, from 0 to 65535.</td>
+</tr>
+<tr>
+<td><code>id-project-code</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The printer's project subcode, from 0 to 65535.</td>
+</tr>
+<tr>
+<td><code>id-region</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The printer's region code, from 0 to 65535.</td>
+</tr>
+<tr>
+<td><code>id-grade</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The printer's grade code, from 0 to 65535.</td>
+</tr>
+<tr>
+<td><code>id-board-type</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The board type code, from 1 to 217.</td>
+</tr>
+<tr>
+<td><code>id-board-issue</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The board issue number, from 1 to 7.</td>
+</tr>
+<tr>
+<td><code>id-mag-board-issue</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The mag board issue number.</td>
+</tr>
+<tr>
+<td><code>id-mcu-flash-size</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The flash size for the print engine MCU, in kilobytes (1 kB = 1024 bytes).</td>
+</tr>
+</tbody>
+</table>
+<p><span>
+<!--
+This is required at the end of any included markdown file, due to a known
+issue with pdoc3 (see <https://github.com/pdoc3/pdoc/issues/384>).
+--></p>
+<p></span></p>
+<h3 id="printing-configuration">Printing Configuration</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Data type</th>
+<th>R/RW</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>delta-print-power</code></td>
+<td>Numeric</td>
+<td>Read-write</td>
+<td>User adjustment for the printhead power level, from −5 to +5 inclusive.</td>
+</tr>
+<tr>
+<td><code>delta-print-image-start</code></td>
+<td>Numeric</td>
+<td>Read-write</td>
+<td>User adjustment for the image start position, in microns, from −1000 to +1000 inclusive.</td>
+</tr>
+<tr>
+<td><code>delta-print-image-end</code></td>
+<td>Numeric</td>
+<td>Read-write</td>
+<td>User adjustment for the image end position, in microns, from −1000 to +1000 inclusive.</td>
+</tr>
+<tr>
+<td><code>print-inter-facet-gap</code></td>
+<td>Numeric</td>
+<td>Read-write</td>
+<td>User adjustment for the gap between facets of an extended print, in microns, from -2000 to +2000 inclusive.</td>
+</tr>
+<tr>
+<td><code>print-transverse-offset</code></td>
+<td>Numeric</td>
+<td>Read-write</td>
+<td>The image transverse offset ("printhead position"), in microns, from −1270 to +1270 inclusive.</td>
+</tr>
+<tr>
+<td><code>print-dye-low-threshold</code></td>
+<td>Numeric</td>
+<td>Read-write</td>
+<td>The threshold, as a percentage, at which the current roll of film is considered low, from 10% to 50% inclusive.</td>
+</tr>
+</tbody>
+</table>
+<p><span>
+<!--
+This is required at the end of any included markdown file, due to a known
+issue with pdoc3 (see <https://github.com/pdoc3/pdoc/issues/384>).
+--></p>
+<p></span></p>
+<h3 id="magnetic-encoding-configuration">Magnetic Encoding Configuration</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Data type</th>
+<th>R/RW</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>encoding-start</code></td>
+<td>Numeric</td>
+<td>Read-write</td>
+<td>The start offset for writing data to a magnetic track, in microns, from 0 to 10000 inclusive.
+Note that the same value is used for all three tracks.</td>
+</tr>
+<tr>
+<td><code>encoding-zero-length</code></td>
+<td>Numeric</td>
+<td>Read-write</td>
+<td>The size of the prefix of zero bits for a magnetic track, measured in microns, from 0 to 10000 inclusive.
+Note that the same value is used for all three tracks.</td>
+</tr>
+<tr>
+<td><code>encoding-read-gain</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The gain that the internal amplification stage will use while reading data from magnetic stripes.
+Permissible values are 2, 4, 8, 16, 32 and 64.
+Invalid values will default to 2.
+Note that this setting is only relevant with printers that feature the 4000-0591 mag encoder PCBA.</td>
+</tr>
+<tr>
+<td><code>encoding-read-threshold-low</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The threshold to use when decoding low/ negative peaks/amplitudes while reading.
+Permissible values are from 0 to 127 inclusive.</td>
+</tr>
+<tr>
+<td><code>encoding-read-threshold-high</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The threshold to use when decoding high/ positive peaks/ amplitudes while reading.
+Permissible values are from 127 to 255 inclusive.</td>
+</tr>
+<tr>
+<td><code>encoding-hico-voltage</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The voltage that will be used for high coercivity encoding.
+Permissible values are from 0 to 255 inclusive, with the actual voltage being calculated as <span><span class="MathJax_Preview">\frac{+5V}{255}\times\text{value}</span><script type="math/tex">\frac{+5V}{255}\times\text{value}</script></span>.
+Note that this setting is only relevant with printers that feature the 4000-0591 mag encoder PCBA.</td>
+</tr>
+<tr>
+<td><code>encoding-midco-voltage</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The voltage that will be used for mid coercivity encoding.
+Permissible values are from 0 to 255 inclusive, with the actual voltage being calculated as <span><span class="MathJax_Preview">\frac{+5V}{255}\times\text{value}</span><script type="math/tex">\frac{+5V}{255}\times\text{value}</script></span>.
+Note that this setting is only relevant with printers that feature the 4000-0591 mag encoder PCBA.</td>
+</tr>
+<tr>
+<td><code>encoding-loco-voltage</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The voltage that will be used for low coercivity encoding.
+Permissible values are from 0 to 255 inclusive, with the actual voltage being calculated as <span><span class="MathJax_Preview">\frac{+5V}{255}\times\text{value}</span><script type="math/tex">\frac{+5V}{255}\times\text{value}</script></span>.
+Note that this setting is only relevant with printers that feature the 4000-0591 mag encoder PCBA.</td>
+</tr>
+<tr>
+<td><code>encoding-read-threshold-zeros</code></td>
+<td>Numeric</td>
+<td>Read-write</td>
+<td>The number of leading zeros to ignore when reading mag track data.
+This is to account for card acceleration.
+Permissible values are from 0 to 50 inclusive.</td>
+</tr>
+</tbody>
+</table>
+<p><span>
+<!--
+This is required at the end of any included markdown file, due to a known
+issue with pdoc3 (see <https://github.com/pdoc3/pdoc/issues/384>).
+--></p>
+<p></span></p>
+<h3 id="contact-contacless-encoding-configuration">Contact/ Contacless Encoding Configuration</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Data type</th>
+<th>R/RW</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>contactless-offset</code></td>
+<td>Numeric</td>
+<td>Read-write</td>
+<td>The card position for contactless encoding, defined as the distance the leading edge of the card is rewound from the front sensor, in microns, from 0 to 99000 inclusive.</td>
+</tr>
+<tr>
+<td><code>contact-offset</code></td>
+<td>Numeric</td>
+<td>Read-write</td>
+<td>The card position for contact encoding, in microns, from 0 to 99000 inclusive. If this value is zero the printer uses the encoder module's sensors (the default behaviour).
+If it is positive, it denotes the distance for which the card will be driven into/out of the module during insertion/extraction respectively, ignoring sensors.</td>
+</tr>
+</tbody>
+</table>
+<p><span>
+<!--
+This is required at the end of any included markdown file, due to a known
+issue with pdoc3 (see <https://github.com/pdoc3/pdoc/issues/384>).
+--></p>
+<p></span></p>
+<h3 id="printer-operation-configuration">Printer Operation Configuration</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Data type</th>
+<th>R/RW</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>operation-clean-from-rear</code></td>
+<td>Boolean</td>
+<td>Read-write</td>
+<td>When true, causes the printer to feed cleaning cards from the rear of the engine rather than the front.</td>
+</tr>
+<tr>
+<td><code>operation-eject-direction</code></td>
+<td>Numeric</td>
+<td>Read-write</td>
+<td>The eject direction, in degrees below the horizontal plane.
+Valid range is from -90 to 90 inclusive.</td>
+</tr>
+<tr>
+<td><code>operation-eject-speed</code></td>
+<td>Numeric</td>
+<td>Read-write</td>
+<td>The eject speed, in millimetres per second.
+Valid range is from 20 to 1500 inclusive.</td>
+</tr>
+<tr>
+<td><code>operation-eject-distance</code></td>
+<td>Numeric</td>
+<td>Read-write</td>
+<td>The eject distance, in millimetres.
+Valid range is from 40 to 200.</td>
+</tr>
+<tr>
+<td><code>operation-reject-direction</code></td>
+<td>Numeric</td>
+<td>Read-write</td>
+<td>The reject direction, in degrees below the horizontal plane.
+Valid range is from -90 to 90 inclusive.</td>
+</tr>
+<tr>
+<td><code>operation-reject-speed</code></td>
+<td>Numeric</td>
+<td>Read-write</td>
+<td>The reject speed, in millimetres per second.
+Valid range is from 20 to 1500 inclusive.</td>
+</tr>
+<tr>
+<td><code>operation-reject-distance</code></td>
+<td>Numeric</td>
+<td>Read-write</td>
+<td>The reject distance, in millimetres.
+Valid range is from 40 to 200.</td>
+</tr>
+<tr>
+<td><code>operation-hand-feed</code></td>
+<td>Boolean</td>
+<td>Read-write</td>
+<td>A flag indicating whether hand feed mode is active. True = active.</td>
+</tr>
+<tr>
+<td><code>operation-print-colour</code></td>
+<td>Boolean</td>
+<td>Read-only</td>
+<td>A flag indicating whether colour printing is enabled.
+True = enabled.</td>
+</tr>
+<tr>
+<td><code>operation-require-resin-rfid</code></td>
+<td>Boolean</td>
+<td>Read-only</td>
+<td>A flag indicating whether RFID tags are required for continuous resin film.
+True = required.</td>
+</tr>
+<tr>
+<td><code>operation-watermark-slots</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The number of available watermark slots.
+This must be between 0 and 10 inclusive.</td>
+</tr>
+<tr>
+<td><code>operation-no-flipper</code></td>
+<td>Boolean</td>
+<td>Read-only</td>
+<td>A flag indicating whether the print engine has a flip mechanism.
+Note that this is distinct from the duplex capability flag (which indicates whether duplex printing is currently enabled) and cannot be changed in the field.
+True = flipper absent.</td>
+</tr>
+<tr>
+<td><code>operation-has-sensor-opto-hopper</code></td>
+<td>Boolean</td>
+<td>Read-only</td>
+<td>A flag indicating whether the print engine has a "cards low" sensor in the input hopper. True = present.</td>
+</tr>
+<tr>
+<td><code>operation-has-sensor-opto-exit</code></td>
+<td>Boolean</td>
+<td>Read-only</td>
+<td>A flag indicating whether the print engine has an exit sensor. True = present.</td>
+</tr>
+<tr>
+<td><code>operation-web-ui-enabled</code></td>
+<td>Boolean</td>
+<td>Read-write</td>
+<td>A flag indicating whether the web UI is enabled (only has effect if <code>id-capability-web-ui</code> is <code>true</code>).</td>
+</tr>
+</tbody>
+</table>
+<p><span>
+<!--
+This is required at the end of any included markdown file, due to a known
+issue with pdoc3 (see <https://github.com/pdoc3/pdoc/issues/384>).
+--></p>
+<p></span></p>
+<h3 id="error-status">Error Status</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Data type</th>
+<th>R/RW</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The printer's current error status.</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>error</code> value contains several fields separated by single tab characters
+(ASCII code 9):</p>
+<ul>
+<li>The first field is an error code string consisting of the major error code
+(decimal) followed by a colon character and then the minor error code
+(decimal).</li>
+<li>The second field is a brief string description of the error, in the printer's
+current language.
+This string may have zero length.</li>
+<li>The third field is a detailed string description of the error, in the
+printer's current language.
+This string may have zero length.</li>
+<li>The fourth field contains the text for the "Retry" button on the error
+dialog, in the printer's current language.
+This string may have zero length,
+in which case no Retry button should be displayed.</li>
+<li>The fifth field contains the text for the "Cancel" button on the error
+dialog, in the printer's current language.
+This string may have zero length,
+in which case no Cancel button should be displayed.</li>
+<li>Any error code with a major code of 0 means there is no error.</li>
+</ul>
+<p><span>
+<!--
+This is required at the end of any included markdown file, due to a known
+issue with pdoc3 (see <https://github.com/pdoc3/pdoc/issues/384>).
+--></p>
+<p></span></p>
+<h3 id="card-position-information">Card Position Information</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Data type</th>
+<th>R/RW</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>card-position</code></td>
+<td>Enumeration</td>
+<td>Read-only</td>
+<td>An enumeration indicating the current card position.</td>
+</tr>
+</tbody>
+</table>
+<p>The possible values for <code>card-position</code> are:</p>
+<ul>
+<li><code>unknown</code> - The card position is unknown.</li>
+<li><code>source</code> - There is no card in the print engine.</li>
+<li><code>standby</code> - The card is in the standby position.</li>
+<li><code>encoder-module</code> - The card is in the optional encoder module.</li>
+</ul>
+<p><strong>Note: <code>card-position</code> will be reported as <code>standby</code> when a card is anywhere within the print engine, other than in the encoder module.</strong></p>
+<p><span>
+<!--
+This is required at the end of any included markdown file, due to a known
+issue with pdoc3 (see <https://github.com/pdoc3/pdoc/issues/384>).
+--></p>
+<p></span></p>
+<h3 id="cleaning-information">Cleaning Information</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Data type</th>
+<th>R/RW</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>clean-cards-between-prompts</code></td>
+<td>Numeric</td>
+<td>Read-write</td>
+<td>The number of cards since the last clean at which a cleaning prompt is triggered, from 100 to 1000.</td>
+</tr>
+<tr>
+<td><code>clean-overdue</code></td>
+<td>Boolean</td>
+<td>Read-only</td>
+<td>True if and only if cleaning is overdue.</td>
+</tr>
+</tbody>
+</table>
+<p><span>
+<!--
+This is required at the end of any included markdown file, due to a known
+issue with pdoc3 (see <https://github.com/pdoc3/pdoc/issues/384>).
+--></p>
+<p></span></p>
+<h3 id="power-saving-configuration">Power-saving Configuration</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Data type</th>
+<th>R/RW</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>power-standby-timeout</code></td>
+<td>Numeric</td>
+<td>Read-write</td>
+<td>The idle time after which the printer will enter standby mode, in minutes, from 5 to 5250000 (approximately 10 years).</td>
+</tr>
+<tr>
+<td><code>power-standby-active</code></td>
+<td>Boolean</td>
+<td>Read-only</td>
+<td>True if, and only if, the printer is currently in standby.</td>
+</tr>
+<tr>
+<td><code>power-off-timeout</code></td>
+<td>Numeric</td>
+<td>Read-write</td>
+<td>The idle time after which the printer will switch off, in minutes, from 5 to 5250000 (approximately 10 years).</td>
+</tr>
+</tbody>
+</table>
+<p><span>
+<!--
+This is required at the end of any included markdown file, due to a known
+issue with pdoc3 (see <https://github.com/pdoc3/pdoc/issues/384>).
+--></p>
+<p></span></p>
+<h3 id="overcoat-settings">Overcoat Settings</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Data type</th>
+<th>R/RW</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>overcoat-key-1</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The overcoat watermark key for slot 1.
+Maximum length 256 characters.</td>
+</tr>
+<tr>
+<td><code>overcoat-key-2</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The overcoat watermark key for slot 2.
+Maximum length 256 characters.</td>
+</tr>
+<tr>
+<td><code>overcoat-key-3</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The overcoat watermark key for slot 3.
+Maximum length 256 characters.</td>
+</tr>
+<tr>
+<td><code>overcoat-key-4</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The overcoat watermark key for slot 4.
+Maximum length 256 characters.</td>
+</tr>
+<tr>
+<td><code>overcoat-key-5</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The overcoat watermark key for slot 5.
+Maximum length 256 characters.</td>
+</tr>
+<tr>
+<td><code>overcoat-key-6</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The overcoat watermark key for slot 6.
+Maximum length 256 characters.</td>
+</tr>
+<tr>
+<td><code>overcoat-key-7</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The overcoat watermark key for slot 7.
+Maximum length 256 characters.</td>
+</tr>
+<tr>
+<td><code>overcoat-key-8</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The overcoat watermark key for slot 8.
+Maximum length 256 characters.</td>
+</tr>
+<tr>
+<td><code>overcoat-key-9</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The overcoat watermark key for slot 9.
+Maximum length 256 characters.</td>
+</tr>
+<tr>
+<td><code>overcoat-key-10</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The overcoat watermark key for slot 10.
+Maximum length 256 characters.</td>
+</tr>
+</tbody>
+</table>
+<p><span>
+<!--
+This is required at the end of any included markdown file, due to a known
+issue with pdoc3 (see <https://github.com/pdoc3/pdoc/issues/384>).
+--></p>
+<p></span></p>
+<h3 id="sensor-states">Sensor States</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Data type</th>
+<th>R/RW</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sensor-adc-dye</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The output of the dye sensor ADC channel, from 0 to 4095.</td>
+</tr>
+<tr>
+<td><code>sensor-adc-current</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The output of the DC motor current ADC channel, from 0 to 4095.</td>
+</tr>
+<tr>
+<td><code>sensor-opto-enc-in</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The output of the encoder in opto sensor. 1 = blocked, 0 = unblocked.</td>
+</tr>
+<tr>
+<td><code>sensor-opto-enc-out</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The output of the encoder out opto sensor. 1 = blocked, 0 = unblocked.</td>
+</tr>
+<tr>
+<td><code>sensor-opto-cam</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The state of the cam opto sensor. 1 = blocked, 0 = unblocked.</td>
+</tr>
+<tr>
+<td><code>sensor-opto-front</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The state of the front card opto sensor. 1 = blocked, 0 = unblocked.</td>
+</tr>
+<tr>
+<td><code>sensor-opto-rear</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The state of the rear card opto sensor. 1 = blocked, 0 = unblocked.</td>
+</tr>
+<tr>
+<td><code>sensor-opto-flip</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The state of the flip opto sensor. 1 = blocked, 0 = unblocked.</td>
+</tr>
+<tr>
+<td><code>sensor-opto-lid</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The state of the lid opto sensor. 1 = blocked, 0 = unblocked.</td>
+</tr>
+<tr>
+<td><code>sensor-opto-mid</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The state of the mid card opto sensor. 1 = blocked, 0 = unblocked.</td>
+</tr>
+<tr>
+<td><code>sensor-opto-hopper</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The state of the hopper sensor.
+1 = cards detected, 0 = no cards.
+<br/><br/> <strong>Note: Some printers do not have this sensor but will still report its state. Read <code>operation-has-sensor-opto-hopper</code> to establish whether or not a printer has a hopper sensor.</strong></td>
+</tr>
+<tr>
+<td><code>sensor-opto-exit</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The state of the exit slot sensor.
+1 = blocked, 0 = unblocked.
+<br/><br/> <strong>Note: Some printers do not have this sensor but will still report its state. Read <code>operation-has-sensor-opto-exit</code> to establish whether or not a printer has a hopper sensor.</strong></td>
+</tr>
+<tr>
+<td><code>sensor-position-dye</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The output of the dye film position counter, from 0 to 65535.</td>
+</tr>
+<tr>
+<td><code>sensor-printhead-temperature</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The printhead temperature, in degrees Celsius.</td>
+</tr>
+</tbody>
+</table>
+<p><span>
+<!--
+This is required at the end of any included markdown file, due to a known
+issue with pdoc3 (see <https://github.com/pdoc3/pdoc/issues/384>).
+--></p>
+<p></span></p>
+<h3 id="network-configuration">Network Configuration</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Data type</th>
+<th>R/RW</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>net-static-ip</code></td>
+<td>String</td>
+<td>Read-write</td>
+<td>The statically-configured IP address, in dotted decimal notation.</td>
+</tr>
+<tr>
+<td><code>net-static-gateway</code></td>
+<td>String</td>
+<td>Read-write</td>
+<td>The statically-configured default gateway, in dotted decimal notation.</td>
+</tr>
+<tr>
+<td><code>net-static-subnet</code></td>
+<td>String</td>
+<td>Read-write</td>
+<td>The statically-configured subnet mask, in dotted decimal notation.</td>
+</tr>
+<tr>
+<td><code>net-static-nameserver-1</code></td>
+<td>String</td>
+<td>Read-write</td>
+<td>The first statically-configured nameserver's IP address, in dotted decimal notation.</td>
+</tr>
+<tr>
+<td><code>net-static-nameserver-2</code></td>
+<td>String</td>
+<td>Read-write</td>
+<td>The second statically-configured nameserver's IP address, in dotted decimal notation.</td>
+</tr>
+<tr>
+<td><code>net-use-dhcp</code></td>
+<td>Boolean</td>
+<td>Read-write</td>
+<td>If and only if this is true, the printer will use DHCP to setup its network settings.</td>
+</tr>
+<tr>
+<td><code>net-mac</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The MAC address of the Ethernet interface, represented as a string of colon-separated hex octets.</td>
+</tr>
+<tr>
+<td><code>net-ip</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The current IP address of the printer, in dotted decimal notation.</td>
+</tr>
+<tr>
+<td><code>net-gateway</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The current default gateway of the printer, in dotted decimal notation.</td>
+</tr>
+<tr>
+<td><code>net-subnet</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The current subnet mask of the printer, in dotted decimal notation.</td>
+</tr>
+<tr>
+<td><code>net-hostname</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The current hostname, appended with mDNS domain '.local'. e.g. "300-77777777.local", "RioPro360-99999999.local".</td>
+</tr>
+<tr>
+<td><code>wifi-static-ip</code></td>
+<td>String</td>
+<td>Read-write</td>
+<td>The statically-configured IP address, in dotted decimal notation.</td>
+</tr>
+<tr>
+<td><code>wifi-static-gateway</code></td>
+<td>String</td>
+<td>Read-write</td>
+<td>The statically-configured default gateway, in dotted decimal notation.</td>
+</tr>
+<tr>
+<td><code>wifi-static-subnet</code></td>
+<td>String</td>
+<td>Read-write</td>
+<td>The statically-configured subnet mask, in dotted decimal notation.</td>
+</tr>
+<tr>
+<td><code>wifi-static-nameserver-1</code></td>
+<td>String</td>
+<td>Read-write</td>
+<td>The first statically-configured nameserver's IP address, in dotted decimal notation.</td>
+</tr>
+<tr>
+<td><code>wifi-static-nameserver-2</code></td>
+<td>String</td>
+<td>Read-write</td>
+<td>The second statically-configured nameserver's IP address, in dotted decimal notation.</td>
+</tr>
+<tr>
+<td><code>wifi-use-dhcp</code></td>
+<td>Boolean</td>
+<td>Read-write</td>
+<td>If and only if this is true, the printer will use DHCP to setup its network settings.</td>
+</tr>
+<tr>
+<td><code>wifi-mac</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The MAC address of the wireless interface, represented as a string of colon-separated hex octets.</td>
+</tr>
+<tr>
+<td><code>wifi-ip</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The current IP address of the printer, in dotted decimal notation.</td>
+</tr>
+<tr>
+<td><code>wifi-subnet</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The current subnet mask of the printer, in dotted decimal notation.</td>
+</tr>
+<tr>
+<td><code>wifi-networks-list</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The list of wireless networks in range of the printer. Hexadecimal encoded SSIDs, comma separated.</td>
+</tr>
+<tr>
+<td><code>wifi-network</code></td>
+<td>String</td>
+<td>Read-write</td>
+<td>On write, connect to named wireless network with credentials.<br/><br/>On read, show connected wifi network.
+Hexadecimal encoded strings, comma separated.</td>
+</tr>
+<tr>
+<td><code>net-interfaces-list</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>List of the available interfaces on the system (e.g. eth0, wlan0). Hexadecimal encoded UTF-8 strings, comma separated.</td>
+</tr>
+<tr>
+<td><code>wifi-connection-status</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>Return the currently configured WiFi SSID and a description of the state. Returns empty string if no WiFi configured.
+Format: <code>&lt;ssid as hex string&gt;,&lt;status&gt;[:failure]</code>.<sup>1</sup></td>
+</tr>
+<tr>
+<td><code>wifi-dongle-connected</code></td>
+<td>Boolean</td>
+<td>Read-only</td>
+<td>True if and only if a WiFi dongle is connected.</td>
+</tr>
+</tbody>
+</table>
+<p><sup>1</sup>: When reading <code>wifi-connection-status</code>, the failure text is only present
+when the status is <code>failure</code>.
+Other states:</p>
+<ul>
+<li><code>idle</code>: The service is not in use at all at the moment. It also is not
+attempting to connect or do anything else.</li>
+<li><code>association</code>: Trying to establish a low-level connection to the network.</li>
+<li><code>configuration</code>: Trying to retrieve/configure IP settings</li>
+<li><code>ready</code>: Successfully connected device. This doesn't mean it has the default
+route, but basic IP operations will succeed.</li>
+<li><code>online</code>: verified connectivity to Internet (ipv4.connman.net can be
+reached).</li>
+<li><code>disconnect</code>: Going to terminate the current connection and will return to
+the "idle" state.</li>
+<li><code>failure</code>: indicates a wrong behavior. It is similar to the "idle" state
+since the service is not connected.</li>
+</ul>
+<p>For all practical purposes <code>ready</code> and <code>online</code> are usually equivalent for the
+intended connectivity experience.
+The <code>ready</code> state gives and indication that
+the network might need a proxy set up to get connected from a company intranet,
+airport WiFi or similar.
+In the worst case the network really has limited
+outside connectivity for one or another reason.</p>
+<p><span>
+<!--
+This is required at the end of any included markdown file, due to a known
+issue with pdoc3 (see <https://github.com/pdoc3/pdoc/issues/384>).
+--></p>
+<p></span></p>
+<h3 id="media-information">Media Information</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Data type</th>
+<th>R/RW</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dye-name</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The part number of the currently-fitted dye film. Maximum length 31 characters.</td>
+</tr>
+<tr>
+<td><code>dye-serial</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The serial number of the currently-fitted dye film. Maximum length 31 characters.</td>
+</tr>
+<tr>
+<td><code>dye-total-prints</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The total prints available with the currently-fitted dye film.</td>
+</tr>
+<tr>
+<td><code>dye-prints-remaining</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The number of prints remaining on the currently-fitted dye film.</td>
+</tr>
+<tr>
+<td><code>dye-ymc-panel-length</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The colour panel length of the currently-fitted dye film, in millimetres.</td>
+</tr>
+<tr>
+<td><code>dye-black1-panel-length</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The first black panel of the currently-fitted dye film, in millimetres.</td>
+</tr>
+<tr>
+<td><code>dye-black2-panel-length</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The second black panel length the currently-fitted dye film, in millimetres.</td>
+</tr>
+<tr>
+<td><code>dye-overcoat-panel-length</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The overcoat panel length of the currently-fitted dye film, in millimetres.</td>
+</tr>
+<tr>
+<td><code>dye-neutral-panel-length</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The neutral panel length of the currently-fitted dye film, in millimetres.</td>
+</tr>
+<tr>
+<td><code>dye-primer-panel-length</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The primer panel length of the currently-fitted dye film, in millimetres.</td>
+</tr>
+<tr>
+<td><code>dye-ribbon-manufacturer</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The dye ribbon manufacturer code.</td>
+</tr>
+<tr>
+<td><code>dye-ribbon-detected</code></td>
+<td>Boolean</td>
+<td>Read-only</td>
+<td>True if and only if a physical ribbon was detected during film initialisation.</td>
+</tr>
+<tr>
+<td><code>dye-date-of-birth</code></td>
+<td>String</td>
+<td>Read-only</td>
+<td>The date on which the dye tag was programmed, in the format dd/mm/yy.</td>
+</tr>
+<tr>
+<td><code>dye-tag-programmer</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The dye film tag programmer ID.</td>
+</tr>
+<tr>
+<td><code>dye-tag-command</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The dye film command code (used by
+printhead replacement spools).</td>
+</tr>
+<tr>
+<td><code>dye-tag-afi</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The AFI of the dye film RFID tag.</td>
+</tr>
+<tr>
+<td><code>dye-tag-dsfid</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The DSFID of the dye film RFID tag.</td>
+</tr>
+<tr>
+<td><code>dye-black-diffusion</code></td>
+<td>Boolean</td>
+<td>Read-only</td>
+<td>True if and only if the fitted dye film supports diffusion black printing.</td>
+</tr>
+</tbody>
+</table>
+<p><span>
+<!--
+This is required at the end of any included markdown file, due to a known
+issue with pdoc3 (see <https://github.com/pdoc3/pdoc/issues/384>).
+--></p>
+<p></span></p>
+<h3 id="usage-statistics">Usage Statistics</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Data type</th>
+<th>R/RW</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>stats-total-cards</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The total number of cards ever printed, from 0 to 2147483647.</td>
+</tr>
+<tr>
+<td><code>stats-total-panels</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The total number of panels ever printed, from 0 to 2147483647.</td>
+</tr>
+<tr>
+<td><code>stats-cards-on-printhead</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The number of cards printed since the last printhead replacement, from 0 to 2147483647.</td>
+</tr>
+<tr>
+<td><code>stats-panels-on-printhead</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The number of panels printed since the last printhead replacement, from 0 to 2147483647.</td>
+</tr>
+<tr>
+<td><code>stats-cards-since-cleaned</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The number of cards printed since the last cleaning cycle, from 0 to 2147483647.</td>
+</tr>
+<tr>
+<td><code>stats-panels-since-cleaned</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The number of panels printed since the last cleaning cycle, from 0 to 2147483647.</td>
+</tr>
+<tr>
+<td><code>stats-cleaning-cycles-performed</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The number of cleaning cycles performed, from 0 to 2147483647.</td>
+</tr>
+<tr>
+<td><code>stats-latest-timestamp</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The timestamp of the most recent job received by the printer, from 0 to 2147483647.</td>
+</tr>
+<tr>
+<td><code>stats-pending-jobs</code></td>
+<td>Numeric</td>
+<td>Read-only</td>
+<td>The number of print jobs queued in the printer memory, including the active job.</td>
+</tr>
+</tbody>
+</table>
+<p><span>
+<!--
+This is required at the end of any included markdown file, due to a known
+issue with pdoc3 (see <https://github.com/pdoc3/pdoc/issues/384>).
+--></p>
+<p></span></p>
+<h3 id="user-interface-configuration">User Interface Configuration</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Data type</th>
+<th>R/RW</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ui-language</code></td>
+<td>Enumeration</td>
+<td>Read-write</td>
+<td>The language used for the user interface and responses to certain printer commands, specified as a two-letter "alpha-2" code in accordance with <a href="https://en.wikipedia.org/wiki/ISO_639">ISO 639</a>.
+Maximum length 10 characters.</td>
+</tr>
+</tbody>
+</table>
+<p>The supported values for <code>ui-language</code> are as follows:</p>
+<ul>
+<li><code>en</code> - English.</li>
+<li><code>pl</code> - Polish.</li>
+<li><code>it</code> - Italian.</li>
+<li><code>ro</code> - Romanian.</li>
+<li><code>de</code> - German.</li>
+<li><code>es</code> - Spanish.</li>
+<li><code>fr</code> - French.</li>
+</ul>
+<p>Unsupported values will be silently converted to <code>en</code>.</p>
+<p><span>
+<!--
+This is required at the end of any included markdown file, due to a known
+issue with pdoc3 (see <https://github.com/pdoc3/pdoc/issues/384>).
+--></p>
+<p></span></p>
+</section>
+<section>
+<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+<dl>
+<dt><code class="name"><a title="magpy.connection" href="connection/index.html">magpy.connection</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="magpy.mag_encoder" href="mag_encoder/index.html">magpy.mag_encoder</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="magpy.printer" href="printer.html">magpy.printer</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="magpy.printer_event_manager" href="printer_event_manager/index.html">magpy.printer_event_manager</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="magpy.prn_file" href="prn_file.html">magpy.prn_file</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="magpy.version" href="version.html">magpy.version</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="magpy.CamMovement"><code class="flex name class">
+<span>class <span class="ident">CamMovement</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The various CAM movements that the printer can perform.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="magpy.CamMovement.CLOSE"><code class="name">var <span class="ident">CLOSE</span></code></dt>
+<dd>
+<div class="desc"><p>Close the CAM mechanism.</p></div>
+</dd>
+<dt id="magpy.CamMovement.INITIALISE"><code class="name">var <span class="ident">INITIALISE</span></code></dt>
+<dd>
+<div class="desc"><p>Initialise the CAM mechanism.</p></div>
+</dd>
+<dt id="magpy.CamMovement.OPEN"><code class="name">var <span class="ident">OPEN</span></code></dt>
+<dd>
+<div class="desc"><p>Open the CAM mechanism.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="magpy.CardMovement"><code class="flex name class">
+<span>class <span class="ident">CardMovement</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The various card movements that the printer can perform.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="magpy.CardMovement.EJECT"><code class="name">var <span class="ident">EJECT</span></code></dt>
+<dd>
+<div class="desc"><p>Eject the card, if one is in the engine.</p></div>
+</dd>
+<dt id="magpy.CardMovement.FLIP"><code class="name">var <span class="ident">FLIP</span></code></dt>
+<dd>
+<div class="desc"><p>Flip the card (feeds in a card first if necessary).</p></div>
+</dd>
+<dt id="magpy.CardMovement.INITIALISE"><code class="name">var <span class="ident">INITIALISE</span></code></dt>
+<dd>
+<div class="desc"><p>Clear the print engine of any cards.</p></div>
+</dd>
+<dt id="magpy.CardMovement.REJECT"><code class="name">var <span class="ident">REJECT</span></code></dt>
+<dd>
+<div class="desc"><p>Reject the card, if one is in the engine.</p></div>
+</dd>
+<dt id="magpy.CardMovement.TO_BACK"><code class="name">var <span class="ident">TO_BACK</span></code></dt>
+<dd>
+<div class="desc"><p>Place a card at the back of the platen.</p></div>
+</dd>
+<dt id="magpy.CardMovement.TO_CONTACT"><code class="name">var <span class="ident">TO_CONTACT</span></code></dt>
+<dd>
+<div class="desc"><p>Place a card in the contact encoder.</p></div>
+</dd>
+<dt id="magpy.CardMovement.TO_CONTACTLESS"><code class="name">var <span class="ident">TO_CONTACTLESS</span></code></dt>
+<dd>
+<div class="desc"><p>Place a card in the contactless encoding position.</p></div>
+</dd>
+<dt id="magpy.CardMovement.TO_FRONT"><code class="name">var <span class="ident">TO_FRONT</span></code></dt>
+<dd>
+<div class="desc"><p>Place a card at the front of the platen.</p></div>
+</dd>
+<dt id="magpy.CardMovement.TO_STANDBY"><code class="name">var <span class="ident">TO_STANDBY</span></code></dt>
+<dd>
+<div class="desc"><p>Place a card in the standby position (on the platen).</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="magpy.ClearErrorAction"><code class="flex name class">
+<span>class <span class="ident">ClearErrorAction</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The various ways in which an error may be cleared.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="magpy.ClearErrorAction.CANCEL"><code class="name">var <span class="ident">CANCEL</span></code></dt>
+<dd>
+<div class="desc"><p>Clear the errror and clear the currently pending print job (if there is
+one).</p></div>
+</dd>
+<dt id="magpy.ClearErrorAction.RETRY"><code class="name">var <span class="ident">RETRY</span></code></dt>
+<dd>
+<div class="desc"><p>Clear the error and restart the currently pending print job (if there is
+one).</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="magpy.DyeMovement"><code class="flex name class">
+<span>class <span class="ident">DyeMovement</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The various dye film movements the printer can perform.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="magpy.DyeMovement.INITIALISE"><code class="name">var <span class="ident">INITIALISE</span></code></dt>
+<dd>
+<div class="desc"><p>Initialise the dye film.</p></div>
+</dd>
+<dt id="magpy.DyeMovement.TO_CYAN"><code class="name">var <span class="ident">TO_CYAN</span></code></dt>
+<dd>
+<div class="desc"><p>Move the dye film to the next cyan panel boundary.</p></div>
+</dd>
+<dt id="magpy.DyeMovement.TO_MAGENTA"><code class="name">var <span class="ident">TO_MAGENTA</span></code></dt>
+<dd>
+<div class="desc"><p>Move the dye film to the next magenta panel boundary.</p></div>
+</dd>
+<dt id="magpy.DyeMovement.TO_NEXT"><code class="name">var <span class="ident">TO_NEXT</span></code></dt>
+<dd>
+<div class="desc"><p>Move the dye film to the next panel boundary.</p></div>
+</dd>
+<dt id="magpy.DyeMovement.TO_OVERCOAT"><code class="name">var <span class="ident">TO_OVERCOAT</span></code></dt>
+<dd>
+<div class="desc"><p>Move the dye film to the next overcoat panel boundary.</p></div>
+</dd>
+<dt id="magpy.DyeMovement.TO_RESIN"><code class="name">var <span class="ident">TO_RESIN</span></code></dt>
+<dd>
+<div class="desc"><p>Move the dye film to the next resin panel boundary.</p></div>
+</dd>
+<dt id="magpy.DyeMovement.TO_YELLOW"><code class="name">var <span class="ident">TO_YELLOW</span></code></dt>
+<dd>
+<div class="desc"><p>Move the dye film to the next yellow panel boundary.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="magpy.FlipperMovement"><code class="flex name class">
+<span>class <span class="ident">FlipperMovement</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The various flipper unit movements the printer can perform.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="magpy.FlipperMovement.ANTI_CLOCKWISE"><code class="name">var <span class="ident">ANTI_CLOCKWISE</span></code></dt>
+<dd>
+<div class="desc"><p>Move the flipper unit in the anticlockwise direction.</p></div>
+</dd>
+<dt id="magpy.FlipperMovement.CLOCKWISE"><code class="name">var <span class="ident">CLOCKWISE</span></code></dt>
+<dd>
+<div class="desc"><p>Move the flipper unit in the clockwise direction.</p></div>
+</dd>
+<dt id="magpy.FlipperMovement.INITIALISE"><code class="name">var <span class="ident">INITIALISE</span></code></dt>
+<dd>
+<div class="desc"><p>Initialise the flipper unit.</p></div>
+</dd>
+<dt id="magpy.FlipperMovement.UNLOCK"><code class="name">var <span class="ident">UNLOCK</span></code></dt>
+<dd>
+<div class="desc"><p>Unlock the flipper unit motor.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="magpy.Limits"><code class="flex name class">
+<span>class <span class="ident">Limits</span></span>
+<span>(</span><span>minValue: str = None, maxValue: str = None, maxLength: str = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class that represents the limits for an individual printer setting.</p>
+<p>Initialise a <code><a title="magpy.Limits" href="#magpy.Limits">Limits</a></code> object.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>minValue</code></strong></dt>
+<dd>The minimum value that the setting can be.</dd>
+<dt><strong><code>maxValue</code></strong></dt>
+<dd>The maximum value that the setting can be.</dd>
+<dt><strong><code>maxLength</code></strong></dt>
+<dd>The maximum length that the setting can be as a string.</dd>
+</dl></div>
+<h3>Instance variables</h3>
+<dl>
+<dt id="magpy.Limits.maxLength"><code class="name">var <span class="ident">maxLength</span></code></dt>
+<dd>
+<div class="desc"><p>The maximum length that the setting can be as a string.</p></div>
+</dd>
+<dt id="magpy.Limits.maxValue"><code class="name">var <span class="ident">maxValue</span></code></dt>
+<dd>
+<div class="desc"><p>The maximum value that the setting can be.</p></div>
+</dd>
+<dt id="magpy.Limits.minValue"><code class="name">var <span class="ident">minValue</span></code></dt>
+<dd>
+<div class="desc"><p>The minimum value that the setting can be.</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="magpy.Limits.as_dict"><code class="name flex">
+<span>def <span class="ident">as_dict</span></span>(<span>self) ‑> Dict[str, str]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retreive this Limits instance as a dictionary.</p>
+<h2 id="returns">Returns</h2>
+<p>This instance as a dictionary.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="magpy.PowerDownType"><code class="flex name class">
+<span>class <span class="ident">PowerDownType</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The varius types of power-downs.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="magpy.PowerDownType.FAST_RESTART"><code class="name">var <span class="ident">FAST_RESTART</span></code></dt>
+<dd>
+<div class="desc"><p>Restart the printer application.</p></div>
+</dd>
+<dt id="magpy.PowerDownType.REBOOT"><code class="name">var <span class="ident">REBOOT</span></code></dt>
+<dd>
+<div class="desc"><p>Reboot the printer.</p></div>
+</dd>
+<dt id="magpy.PowerDownType.SHUT_DOWN"><code class="name">var <span class="ident">SHUT_DOWN</span></code></dt>
+<dd>
+<div class="desc"><p>Shut down the printer.</p></div>
+</dd>
+<dt id="magpy.PowerDownType.STANDBY"><code class="name">var <span class="ident">STANDBY</span></code></dt>
+<dd>
+<div class="desc"><p>Place the printer into standby mode.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="magpy.PrintPreviews"><code class="flex name class">
+<span>class <span class="ident">PrintPreviews</span></span>
+<span>(</span><span>binary_sizes: Dict[str, int] = None, data: bytes = b'')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An object containing print preview images.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>binary_sizes</code></strong></dt>
+<dd>A dictionary containing two properties, 'side0' and
+'side1', that contain the number of bytes in the preview images for
+the front and rear side of the card, respectively, in each of the
+images' raw data.</dd>
+<dt><strong><code>data</code></strong></dt>
+<dd>The raw image data.</dd>
+</dl>
+<p>Initialise a <code><a title="magpy.PrintPreviews" href="#magpy.PrintPreviews">PrintPreviews</a></code> object.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>binary_sizes</code></strong></dt>
+<dd>A dictonary containing the binary sizes, in bytes, of
+the preview images.</dd>
+<dt><strong><code>data</code></strong></dt>
+<dd>The binary preview image data.</dd>
+</dl></div>
+<h3>Instance variables</h3>
+<dl>
+<dt id="magpy.PrintPreviews.binary_sizes"><code class="name">var <span class="ident">binary_sizes</span></code></dt>
+<dd>
+<div class="desc"><p>A dictonary containing the binary sizes, in bytes, of the preview
+images.</p></div>
+</dd>
+<dt id="magpy.PrintPreviews.data"><code class="name">var <span class="ident">data</span></code></dt>
+<dd>
+<div class="desc"><p>The binary preview image data.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="magpy.RawMagData"><code class="flex name class">
+<span>class <span class="ident">RawMagData</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Raw magnetic data, read directly from the magnetic encoder's ADC.</p>
+<p>Effectively a list of ints.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.list</li>
+<li>typing.Generic</li>
+</ul>
+</dd>
+<dt id="magpy.RollerDirection"><code class="flex name class">
+<span>class <span class="ident">RollerDirection</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Print engine roller directions.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="magpy.RollerDirection.BACKWARDS"><code class="name">var <span class="ident">BACKWARDS</span></code></dt>
+<dd>
+<div class="desc"><p>Start moving the print rollers in the backwards direction.</p></div>
+</dd>
+<dt id="magpy.RollerDirection.FORWARDS"><code class="name">var <span class="ident">FORWARDS</span></code></dt>
+<dd>
+<div class="desc"><p>Start moving the print rollers in the forwards direction.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="magpy.Settings"><code class="flex name class">
+<span>class <span class="ident">Settings</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class that represents printer settings objects.</p>
+<p>Effectively a dictionary of strings, keyed by strings.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.dict</li>
+<li>typing.Generic</li>
+</ul>
+</dd>
+<dt id="magpy.SettingsLimits"><code class="flex name class">
+<span>class <span class="ident">SettingsLimits</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class that represents printer settings limits objects.</p>
+<p>Effectively a dictionary of <code><a title="magpy.Limits" href="#magpy.Limits">Limits</a></code> objects, keyed by strings.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.dict</li>
+<li>typing.Generic</li>
+</ul>
+</dd>
+<dt id="magpy.SoakTest"><code class="flex name class">
+<span>class <span class="ident">SoakTest</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The various types of soak test that the printer can perform.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="magpy.SoakTest.CARD_FEED"><code class="name">var <span class="ident">CARD_FEED</span></code></dt>
+<dd>
+<div class="desc"><p>Soak test the card feed only.</p></div>
+</dd>
+<dt id="magpy.SoakTest.ENCODER"><code class="name">var <span class="ident">ENCODER</span></code></dt>
+<dd>
+<div class="desc"><p>Soak test the SMART encoder only.</p></div>
+</dd>
+<dt id="magpy.SoakTest.FLIPPER"><code class="name">var <span class="ident">FLIPPER</span></code></dt>
+<dd>
+<div class="desc"><p>Soak test the flipper unit only.</p></div>
+</dd>
+<dt id="magpy.SoakTest.LONG"><code class="name">var <span class="ident">LONG</span></code></dt>
+<dd>
+<div class="desc"><p>Perform a longer soak routine for the entire printer (several hours in
+duration).</p></div>
+</dd>
+<dt id="magpy.SoakTest.PRINTER"><code class="name">var <span class="ident">PRINTER</span></code></dt>
+<dd>
+<div class="desc"><p>Soak test the entire printer.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="magpy.TestPrint"><code class="flex name class">
+<span>class <span class="ident">TestPrint</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The various types of test print.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="magpy.TestPrint.AUTO_SETUP"><code class="name">var <span class="ident">AUTO_SETUP</span></code></dt>
+<dd>
+<div class="desc"><p>An image to assist with automated set-up.</p></div>
+</dd>
+<dt id="magpy.TestPrint.COLOUR_SQUARES"><code class="name">var <span class="ident">COLOUR_SQUARES</span></code></dt>
+<dd>
+<div class="desc"><p>An image with colour swatches.</p></div>
+</dd>
+<dt id="magpy.TestPrint.FULL_PANEL"><code class="name">var <span class="ident">FULL_PANEL</span></code></dt>
+<dd>
+<div class="desc"><p>A full bleed composite grey image.</p></div>
+</dd>
+<dt id="magpy.TestPrint.GRADIENT"><code class="name">var <span class="ident">GRADIENT</span></code></dt>
+<dd>
+<div class="desc"><p>An image with greyscale gradients.</p></div>
+</dd>
+<dt id="magpy.TestPrint.HOLOCODE_TEST"><code class="name">var <span class="ident">HOLOCODE_TEST</span></code></dt>
+<dd>
+<div class="desc"><p>An image with a HoloCode containing the printer's serial number.</p></div>
+</dd>
+<dt id="magpy.TestPrint.IMAGE_PROCESSING"><code class="name">var <span class="ident">IMAGE_PROCESSING</span></code></dt>
+<dd>
+<div class="desc"><p>An image to test the printer's image processing algorithms.</p></div>
+</dd>
+<dt id="magpy.TestPrint.MAG_TEST_ISO"><code class="name">var <span class="ident">MAG_TEST_ISO</span></code></dt>
+<dd>
+<div class="desc"><p>An image to test magnetic encoding in accordance with ISO.</p></div>
+</dd>
+<dt id="magpy.TestPrint.MAG_TEST_JIS2"><code class="name">var <span class="ident">MAG_TEST_JIS2</span></code></dt>
+<dd>
+<div class="desc"><p>An image to test magnetic encoding in accordance with JIS2.</p></div>
+</dd>
+<dt id="magpy.TestPrint.MONO_SETUP"><code class="name">var <span class="ident">MONO_SETUP</span></code></dt>
+<dd>
+<div class="desc"><p>A monoschrome version of the setup image.</p></div>
+</dd>
+<dt id="magpy.TestPrint.SETUP"><code class="name">var <span class="ident">SETUP</span></code></dt>
+<dd>
+<div class="desc"><p>An image to assist with printer setup during production.</p></div>
+</dd>
+<dt id="magpy.TestPrint.SKEW_TEST"><code class="name">var <span class="ident">SKEW_TEST</span></code></dt>
+<dd>
+<div class="desc"><p>An image to assist with checking colour registration from image skew.</p></div>
+</dd>
+<dt id="magpy.TestPrint.WHITE_BARS"><code class="name">var <span class="ident">WHITE_BARS</span></code></dt>
+<dd>
+<div class="desc"><p>An image with white bars against a grey background.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul>
+<li><a href="#installation">Installation</a><ul>
+<li><a href="#additional-steps-for-linux">Additional steps for Linux</a></li>
+<li><a href="#additional-steps-for-windows">Additional steps for Windows</a></li>
+</ul>
+</li>
+<li><a href="#examples">Examples</a><ul>
+<li><a href="#monitor-printer-for-errors-and-display-them-on-screen">Monitor printer for errors and display them on screen</a></li>
+<li><a href="#toggle-hand-feed-mode">Toggle hand-feed mode</a></li>
+<li><a href="#retrieve-a-printer-report-query-and-save-it-to-disk-over-usb">Retrieve a printer report/ "query" and save it to disk over USB.</a></li>
+</ul>
+</li>
+<li><a href="#printer-settings">Printer Settings</a><ul>
+<li><a href="#identity-information">Identity Information</a></li>
+<li><a href="#printing-configuration">Printing Configuration</a></li>
+<li><a href="#magnetic-encoding-configuration">Magnetic Encoding Configuration</a></li>
+<li><a href="#contact-contacless-encoding-configuration">Contact/ Contacless Encoding Configuration</a></li>
+<li><a href="#printer-operation-configuration">Printer Operation Configuration</a></li>
+<li><a href="#error-status">Error Status</a></li>
+<li><a href="#card-position-information">Card Position Information</a></li>
+<li><a href="#cleaning-information">Cleaning Information</a></li>
+<li><a href="#power-saving-configuration">Power-saving Configuration</a></li>
+<li><a href="#overcoat-settings">Overcoat Settings</a></li>
+<li><a href="#sensor-states">Sensor States</a></li>
+<li><a href="#network-configuration">Network Configuration</a></li>
+<li><a href="#media-information">Media Information</a></li>
+<li><a href="#usage-statistics">Usage Statistics</a></li>
+<li><a href="#user-interface-configuration">User Interface Configuration</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<ul>
+<li><code><a title="magpy.connection" href="connection/index.html">magpy.connection</a></code></li>
+<li><code><a title="magpy.mag_encoder" href="mag_encoder/index.html">magpy.mag_encoder</a></code></li>
+<li><code><a title="magpy.printer" href="printer.html">magpy.printer</a></code></li>
+<li><code><a title="magpy.printer_event_manager" href="printer_event_manager/index.html">magpy.printer_event_manager</a></code></li>
+<li><code><a title="magpy.prn_file" href="prn_file.html">magpy.prn_file</a></code></li>
+<li><code><a title="magpy.version" href="version.html">magpy.version</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="magpy.CamMovement" href="#magpy.CamMovement">CamMovement</a></code></h4>
+<ul class="">
+<li><code><a title="magpy.CamMovement.CLOSE" href="#magpy.CamMovement.CLOSE">CLOSE</a></code></li>
+<li><code><a title="magpy.CamMovement.INITIALISE" href="#magpy.CamMovement.INITIALISE">INITIALISE</a></code></li>
+<li><code><a title="magpy.CamMovement.OPEN" href="#magpy.CamMovement.OPEN">OPEN</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="magpy.CardMovement" href="#magpy.CardMovement">CardMovement</a></code></h4>
+<ul class="two-column">
+<li><code><a title="magpy.CardMovement.EJECT" href="#magpy.CardMovement.EJECT">EJECT</a></code></li>
+<li><code><a title="magpy.CardMovement.FLIP" href="#magpy.CardMovement.FLIP">FLIP</a></code></li>
+<li><code><a title="magpy.CardMovement.INITIALISE" href="#magpy.CardMovement.INITIALISE">INITIALISE</a></code></li>
+<li><code><a title="magpy.CardMovement.REJECT" href="#magpy.CardMovement.REJECT">REJECT</a></code></li>
+<li><code><a title="magpy.CardMovement.TO_BACK" href="#magpy.CardMovement.TO_BACK">TO_BACK</a></code></li>
+<li><code><a title="magpy.CardMovement.TO_CONTACT" href="#magpy.CardMovement.TO_CONTACT">TO_CONTACT</a></code></li>
+<li><code><a title="magpy.CardMovement.TO_CONTACTLESS" href="#magpy.CardMovement.TO_CONTACTLESS">TO_CONTACTLESS</a></code></li>
+<li><code><a title="magpy.CardMovement.TO_FRONT" href="#magpy.CardMovement.TO_FRONT">TO_FRONT</a></code></li>
+<li><code><a title="magpy.CardMovement.TO_STANDBY" href="#magpy.CardMovement.TO_STANDBY">TO_STANDBY</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="magpy.ClearErrorAction" href="#magpy.ClearErrorAction">ClearErrorAction</a></code></h4>
+<ul class="">
+<li><code><a title="magpy.ClearErrorAction.CANCEL" href="#magpy.ClearErrorAction.CANCEL">CANCEL</a></code></li>
+<li><code><a title="magpy.ClearErrorAction.RETRY" href="#magpy.ClearErrorAction.RETRY">RETRY</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="magpy.DyeMovement" href="#magpy.DyeMovement">DyeMovement</a></code></h4>
+<ul class="two-column">
+<li><code><a title="magpy.DyeMovement.INITIALISE" href="#magpy.DyeMovement.INITIALISE">INITIALISE</a></code></li>
+<li><code><a title="magpy.DyeMovement.TO_CYAN" href="#magpy.DyeMovement.TO_CYAN">TO_CYAN</a></code></li>
+<li><code><a title="magpy.DyeMovement.TO_MAGENTA" href="#magpy.DyeMovement.TO_MAGENTA">TO_MAGENTA</a></code></li>
+<li><code><a title="magpy.DyeMovement.TO_NEXT" href="#magpy.DyeMovement.TO_NEXT">TO_NEXT</a></code></li>
+<li><code><a title="magpy.DyeMovement.TO_OVERCOAT" href="#magpy.DyeMovement.TO_OVERCOAT">TO_OVERCOAT</a></code></li>
+<li><code><a title="magpy.DyeMovement.TO_RESIN" href="#magpy.DyeMovement.TO_RESIN">TO_RESIN</a></code></li>
+<li><code><a title="magpy.DyeMovement.TO_YELLOW" href="#magpy.DyeMovement.TO_YELLOW">TO_YELLOW</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="magpy.FlipperMovement" href="#magpy.FlipperMovement">FlipperMovement</a></code></h4>
+<ul class="">
+<li><code><a title="magpy.FlipperMovement.ANTI_CLOCKWISE" href="#magpy.FlipperMovement.ANTI_CLOCKWISE">ANTI_CLOCKWISE</a></code></li>
+<li><code><a title="magpy.FlipperMovement.CLOCKWISE" href="#magpy.FlipperMovement.CLOCKWISE">CLOCKWISE</a></code></li>
+<li><code><a title="magpy.FlipperMovement.INITIALISE" href="#magpy.FlipperMovement.INITIALISE">INITIALISE</a></code></li>
+<li><code><a title="magpy.FlipperMovement.UNLOCK" href="#magpy.FlipperMovement.UNLOCK">UNLOCK</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="magpy.Limits" href="#magpy.Limits">Limits</a></code></h4>
+<ul class="">
+<li><code><a title="magpy.Limits.as_dict" href="#magpy.Limits.as_dict">as_dict</a></code></li>
+<li><code><a title="magpy.Limits.maxLength" href="#magpy.Limits.maxLength">maxLength</a></code></li>
+<li><code><a title="magpy.Limits.maxValue" href="#magpy.Limits.maxValue">maxValue</a></code></li>
+<li><code><a title="magpy.Limits.minValue" href="#magpy.Limits.minValue">minValue</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="magpy.PowerDownType" href="#magpy.PowerDownType">PowerDownType</a></code></h4>
+<ul class="">
+<li><code><a title="magpy.PowerDownType.FAST_RESTART" href="#magpy.PowerDownType.FAST_RESTART">FAST_RESTART</a></code></li>
+<li><code><a title="magpy.PowerDownType.REBOOT" href="#magpy.PowerDownType.REBOOT">REBOOT</a></code></li>
+<li><code><a title="magpy.PowerDownType.SHUT_DOWN" href="#magpy.PowerDownType.SHUT_DOWN">SHUT_DOWN</a></code></li>
+<li><code><a title="magpy.PowerDownType.STANDBY" href="#magpy.PowerDownType.STANDBY">STANDBY</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="magpy.PrintPreviews" href="#magpy.PrintPreviews">PrintPreviews</a></code></h4>
+<ul class="">
+<li><code><a title="magpy.PrintPreviews.binary_sizes" href="#magpy.PrintPreviews.binary_sizes">binary_sizes</a></code></li>
+<li><code><a title="magpy.PrintPreviews.data" href="#magpy.PrintPreviews.data">data</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="magpy.RawMagData" href="#magpy.RawMagData">RawMagData</a></code></h4>
+</li>
+<li>
+<h4><code><a title="magpy.RollerDirection" href="#magpy.RollerDirection">RollerDirection</a></code></h4>
+<ul class="">
+<li><code><a title="magpy.RollerDirection.BACKWARDS" href="#magpy.RollerDirection.BACKWARDS">BACKWARDS</a></code></li>
+<li><code><a title="magpy.RollerDirection.FORWARDS" href="#magpy.RollerDirection.FORWARDS">FORWARDS</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="magpy.Settings" href="#magpy.Settings">Settings</a></code></h4>
+</li>
+<li>
+<h4><code><a title="magpy.SettingsLimits" href="#magpy.SettingsLimits">SettingsLimits</a></code></h4>
+</li>
+<li>
+<h4><code><a title="magpy.SoakTest" href="#magpy.SoakTest">SoakTest</a></code></h4>
+<ul class="">
+<li><code><a title="magpy.SoakTest.CARD_FEED" href="#magpy.SoakTest.CARD_FEED">CARD_FEED</a></code></li>
+<li><code><a title="magpy.SoakTest.ENCODER" href="#magpy.SoakTest.ENCODER">ENCODER</a></code></li>
+<li><code><a title="magpy.SoakTest.FLIPPER" href="#magpy.SoakTest.FLIPPER">FLIPPER</a></code></li>
+<li><code><a title="magpy.SoakTest.LONG" href="#magpy.SoakTest.LONG">LONG</a></code></li>
+<li><code><a title="magpy.SoakTest.PRINTER" href="#magpy.SoakTest.PRINTER">PRINTER</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="magpy.TestPrint" href="#magpy.TestPrint">TestPrint</a></code></h4>
+<ul class="two-column">
+<li><code><a title="magpy.TestPrint.AUTO_SETUP" href="#magpy.TestPrint.AUTO_SETUP">AUTO_SETUP</a></code></li>
+<li><code><a title="magpy.TestPrint.COLOUR_SQUARES" href="#magpy.TestPrint.COLOUR_SQUARES">COLOUR_SQUARES</a></code></li>
+<li><code><a title="magpy.TestPrint.FULL_PANEL" href="#magpy.TestPrint.FULL_PANEL">FULL_PANEL</a></code></li>
+<li><code><a title="magpy.TestPrint.GRADIENT" href="#magpy.TestPrint.GRADIENT">GRADIENT</a></code></li>
+<li><code><a title="magpy.TestPrint.HOLOCODE_TEST" href="#magpy.TestPrint.HOLOCODE_TEST">HOLOCODE_TEST</a></code></li>
+<li><code><a title="magpy.TestPrint.IMAGE_PROCESSING" href="#magpy.TestPrint.IMAGE_PROCESSING">IMAGE_PROCESSING</a></code></li>
+<li><code><a title="magpy.TestPrint.MAG_TEST_ISO" href="#magpy.TestPrint.MAG_TEST_ISO">MAG_TEST_ISO</a></code></li>
+<li><code><a title="magpy.TestPrint.MAG_TEST_JIS2" href="#magpy.TestPrint.MAG_TEST_JIS2">MAG_TEST_JIS2</a></code></li>
+<li><code><a title="magpy.TestPrint.MONO_SETUP" href="#magpy.TestPrint.MONO_SETUP">MONO_SETUP</a></code></li>
+<li><code><a title="magpy.TestPrint.SETUP" href="#magpy.TestPrint.SETUP">SETUP</a></code></li>
+<li><code><a title="magpy.TestPrint.SKEW_TEST" href="#magpy.TestPrint.SKEW_TEST">SKEW_TEST</a></code></li>
+<li><code><a title="magpy.TestPrint.WHITE_BARS" href="#magpy.TestPrint.WHITE_BARS">WHITE_BARS</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

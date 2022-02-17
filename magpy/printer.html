@@ -1,0 +1,885 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>magpy.printer API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9;--table-border-color:hsl(0,0%,95%);--table-alternate-bg:hsl(0,0%,97%);--table-header-bg:hsl(0,0%,80%)}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}table{margin:0 auto;border-collapse:collapse;width:100%}table td{padding:3px 10px;border:1px var(--table-border-color) solid}table thead{background:var(--table-header-bg);white-space:nowrap}table thead td{font-weight:700;border:none}table thead th{padding:3px 20px}table thead tr{border:1px var(--table-header-bg) solid}table tbody tr:nth-child(2n){background:var(--table-alternate-bg)}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML" integrity="sha256-kZafAc6mZvK3W3v1pHOcUix30OHQN6pU/NO2oFkqZVw=" crossorigin></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>magpy.printer</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="magpy.printer.Printer"><code class="flex name class">
+<span>class <span class="ident">Printer</span></span>
+<span>(</span><span>conn: <a title="magpy.connection.Connection" href="connection/index.html#magpy.connection.Connection">Connection</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class for sending commands to, and reading responses from, Magicard's
+Generation 2 printers.</p>
+<p>Initialise a <code><a title="magpy.printer.Printer" href="#magpy.printer.Printer">Printer</a></code> object.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>conn</code></strong></dt>
+<dd>The <code>Connection</code> for the <code><a title="magpy.printer.Printer" href="#magpy.printer.Printer">Printer</a></code> object to use when
+communicating with the printer.</dd>
+</dl></div>
+<h3>Methods</h3>
+<dl>
+<dt id="magpy.printer.Printer.calibrate_dye_ctrl"><code class="name flex">
+<span>def <span class="ident">calibrate_dye_ctrl</span></span>(<span>self, timeout: int = 15000) ‑> <a title="magpy.Settings" href="index.html#magpy.Settings">Settings</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calibrate the printer's dye sensor and dye motor.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+received a response.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>The new calibration settings (which will have been automatically
+written to the printer), namely:</p>
+<ul>
+<li><code>"print-duty-cycle-red"</code></li>
+<li><code>"print-duty-cycle-green"</code></li>
+<li><code>"print-duty-cycle-blue"</code></li>
+<li><code>"print-dye-current"</code>.</li>
+</ul>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.cancel_print_job"><code class="name flex">
+<span>def <span class="ident">cancel_print_job</span></span>(<span>self, timeout: int = 3000) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Cancel the print job currently being executed by the printer.</p>
+<p>Note that if the printer isn't currently executing a print job, this
+method is silently ignored.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+received a response.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.card_move"><code class="name flex">
+<span>def <span class="ident">card_move</span></span>(<span>self, movement: Union[<a title="magpy.CardMovement" href="index.html#magpy.CardMovement">CardMovement</a>, str], timeout: int = 12000) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Move a card around the printer's print engine.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>movement</code></strong></dt>
+<dd>Where to move the card.</dd>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+received a response.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p><code>True</code> if, and only if, the response indicates that the movement
+was successful.</p>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.dye_led_test"><code class="name flex">
+<span>def <span class="ident">dye_led_test</span></span>(<span>self, timeout: int = 3000) ‑> <a title="magpy.Settings" href="index.html#magpy.Settings">Settings</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test the printer's dye LED sensor arrangement.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+received a response.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>The dye film control settings, namely:</p>
+<ul>
+<li><code>"print-duty-cycle-red"</code></li>
+<li><code>"print-duty-cycle-green"</code></li>
+<li><code>"print-duty-cycle-blue"</code></li>
+<li><code>"print-dye-current"</code></li>
+</ul>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.error_clear"><code class="name flex">
+<span>def <span class="ident">error_clear</span></span>(<span>self, method: Union[<a title="magpy.ClearErrorAction" href="index.html#magpy.ClearErrorAction">ClearErrorAction</a>, str], timeout: int = 7000) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Clear the printer's current error condition, using the given error
+clearing action on the currently pending print job (if there is one).</p>
+<p>Note that if the printer is not currently in an error condition, this
+command is silently ignored.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>method</code></strong></dt>
+<dd>The way in which the error should be cleared.</dd>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+received a response.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.error_if_film_present"><code class="name flex">
+<span>def <span class="ident">error_if_film_present</span></span>(<span>self, timeout: int = 3000) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Check if the printer currently has dye film fitted.</p>
+<p>Note that if the printer <em>is</em> currently fitted with dye film, it will
+raise an error while executing this command.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+received a response.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p><code>True</code> if, and only if, there is film currently fitted.</p>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.force_error"><code class="name flex">
+<span>def <span class="ident">force_error</span></span>(<span>self, error_code: int, timeout: int = 3000) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Force the printer into an error condition.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>error_code</code></strong></dt>
+<dd>The major error code to set the printer into. Note the
+printer will set the minor error code automatically.</dd>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+received a response.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.get"><code class="name flex">
+<span>def <span class="ident">get</span></span>(<span>self, settings: Union[List[str], str], timeout: int = 3000) ‑> Union[<a title="magpy.Settings" href="index.html#magpy.Settings">Settings</a>, str]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Read one or multiple settings from the printer.</p>
+<p>Note that the settings that can be read from a printer are outlined in
+<a href="index.html#printer-settings">Printer Settings</a>.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>settings</code></strong></dt>
+<dd>The setting(s) to read.</dd>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+received a response.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>The value of the setting(s) we just read.</p>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.get_holokote_preview"><code class="name flex">
+<span>def <span class="ident">get_holokote_preview</span></span>(<span>self, slot: int, timeout: int = 3000) ‑> bytes</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve a preview image ("thumbnail") of a HoloKote bitmap, for a
+given HoloKote slot, from the printer.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>slot</code></strong></dt>
+<dd>The slot number of the HoloKote to preview.</dd>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+received a response.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>The HoloKote preview.</p>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.get_limits"><code class="name flex">
+<span>def <span class="ident">get_limits</span></span>(<span>self, settings: Union[List[str], str], timeout: int = 3000) ‑> Union[<a title="magpy.SettingsLimits" href="index.html#magpy.SettingsLimits">SettingsLimits</a>, <a title="magpy.Limits" href="index.html#magpy.Limits">Limits</a>]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Read the limits of one or multiple settings from the printer.</p>
+<p>Note that the settings for which limits can be retrieved from a printer
+are outlined in <a href="index.html#printer-settings">Printer Settings</a>.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>settings</code></strong></dt>
+<dd>The settings whose limits are to be read.</dd>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+received a response.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>The limits we just read.</p>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.get_print_preview"><code class="name flex">
+<span>def <span class="ident">get_print_preview</span></span>(<span>self, timeout: int = 3000) ‑> <a title="magpy.PrintPreviews" href="index.html#magpy.PrintPreviews">PrintPreviews</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve a preview image of the print job currently being printed.</p>
+<p>Note that if the printer isn't currently executing a print job, then an
+empty <code>PrintPreviews</code> object is returned.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+received a response.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>The preview image(s).</p>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.get_report"><code class="name flex">
+<span>def <span class="ident">get_report</span></span>(<span>self, timeout: int = 30000) ‑> bytes</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve a detailed system status report ("printer query") from the
+printer.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+received a response.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>The report, in the form of a ZIP archive containing a plain UTF-8
+text file.</p>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.keep_alive"><code class="name flex">
+<span>def <span class="ident">keep_alive</span></span>(<span>self, timeout: int = 3000) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Prevent the printer from going into standby/ powering down.</p>
+<p>Note that is the printer is currently in standby, this command will
+take the printer out of standby.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+received a response.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.load"><code class="name flex">
+<span>def <span class="ident">load</span></span>(<span>self, timeout: int = 5000) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Restore the printer's settings from a backup copy of what they were
+when the printer left the factory.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+received a response.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.mag_read"><code class="name flex">
+<span>def <span class="ident">mag_read</span></span>(<span>self, read_track1: bool = True, read_track2: bool = True, read_track3: bool = True, read_forwards: bool = True, timeout: int = 15000) ‑> List[Union[str, NoneType]]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Read the encoded mag-stripe data from a card.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>read_track1</code></strong></dt>
+<dd>Whether or not to read raw data from track 1.</dd>
+<dt><strong><code>read_track2</code></strong></dt>
+<dd>Whether or not to read raw data from track 2.</dd>
+<dt><strong><code>read_track3</code></strong></dt>
+<dd>Whether or not to read raw data from track 3.</dd>
+<dt><strong><code>read_forwards</code></strong></dt>
+<dd>Whether or not to read the mag data in the forward
+direction (or reverse direction if False). True by default.</dd>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+received a response.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>The mag data read from the stripe, as binary srings (or None for
+tracks that weren't read).</p>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p>
+<p><code><a title="magpy.mag_encoder.MagDecodingError" href="mag_encoder/index.html#magpy.mag_encoder.MagDecodingError">MagDecodingError</a></code>: If the response contains an
+invalid 'track-options' node.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.mag_read_raw"><code class="name flex">
+<span>def <span class="ident">mag_read_raw</span></span>(<span>self, read_track1: bool = True, read_track2: bool = True, read_track3: bool = True, timeout: int = 15000) ‑> List[Union[<a title="magpy.RawMagData" href="index.html#magpy.RawMagData">RawMagData</a>, NoneType]]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Read the raw mag-stripe waveform data from a card, direct from the
+printer's magnetic encoder's ADC (Analog to Digital Converter).</p>
+<p>Note that not all printers are capable of executing this command. To
+establish whether or not a printer is capable of performing this
+command, read <code>id-capability-mag-raw</code> (see
+<a href="index.html#identity-information">Identity Information</a>).</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>read_track1</code></strong></dt>
+<dd>Whether or not to read raw data from track 1.</dd>
+<dt><strong><code>read_track2</code></strong></dt>
+<dd>Whether or not to read raw data from track 2.</dd>
+<dt><strong><code>read_track3</code></strong></dt>
+<dd>Whether or not to read raw data from track 3.</dd>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+received a response.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>The raw mag data read from the specified mag tracks (tracks that
+weren't read will
+be None).</p>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.move_cam"><code class="name flex">
+<span>def <span class="ident">move_cam</span></span>(<span>self, movement: Union[<a title="magpy.CamMovement" href="index.html#magpy.CamMovement">CamMovement</a>, str], timeout: int = 3000) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Move the printer's cam mechanism.</p>
+<p>Note that if the printer is busy printing, cleaning or soaking then
+this command blocks until the printer has finished and is available to
+execute the command. This method does not return until the physical cam
+movement has completed (or failed).</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>movement</code></strong></dt>
+<dd>Where to move the cam.</dd>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+received a response.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p><code>True</code> if, and only if, the response indicates that the movement
+was successful.</p>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.move_dye"><code class="name flex">
+<span>def <span class="ident">move_dye</span></span>(<span>self, movement: Union[<a title="magpy.DyeMovement" href="index.html#magpy.DyeMovement">DyeMovement</a>, str], timeout: int = 3000) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Move the dye film currently fitted to the printer to a desired panel
+boundary.</p>
+<p>Note that if the printer is busy printing, cleaning or soaking then
+this command blocks until the printer has finished and is available to
+execute the command. This method does not return until the physical dye
+movement has completed (or failed).</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>movement</code></strong></dt>
+<dd>Where to move the dye film.</dd>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+received a response.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p><code>True</code> if, and only if, the response indicates that the movement
+was successful.</p>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.move_flip"><code class="name flex">
+<span>def <span class="ident">move_flip</span></span>(<span>self, movement: Union[<a title="magpy.FlipperMovement" href="index.html#magpy.FlipperMovement">FlipperMovement</a>, str], timeout: int = 3000, angle: int = 180) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Move the printer's flipper unit.</p>
+<p>Note that if the printer is busy printing, cleaning or soaking then
+this command blocks until the printer has finished and is available to
+execute the command. This method does not return until the physical
+flipper movement has completed (or failed).</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>movement</code></strong></dt>
+<dd>Where to move the flipper unit.</dd>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+received a response.</dd>
+<dt><strong><code>angle</code></strong></dt>
+<dd>The angle to move the flipper unit. Note this only has an
+effect if movement is CLOCKWISE or ANTI_CLOCKWISE.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p><code>True</code> if, and only if, the response indicates that the movement
+was successful.</p>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.power_down"><code class="name flex">
+<span>def <span class="ident">power_down</span></span>(<span>self, type: Union[<a title="magpy.PowerDownType" href="index.html#magpy.PowerDownType">PowerDownType</a>, str], timeout: int = 3000) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Power down the printer by switching it off, rebooting it, or putting
+it into standby.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>type</code></strong></dt>
+<dd>The type of power down to perform.</dd>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+received a response.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.printhead_fan_test"><code class="name flex">
+<span>def <span class="ident">printhead_fan_test</span></span>(<span>self, timeout: int = 3000) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test the printer's printhead fan.</p>
+<p>While executing this command, the printer will start the printhead fan,
+and after a short time (around 10 seconds) automatically switch it off.
+Note that the printer issues a response to this command immediately
+(and thus this method returns immediately), without waiting for the fan
+to stop.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+received a response.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.send_print_job"><code class="name flex">
+<span>def <span class="ident">send_print_job</span></span>(<span>self, job: <a title="magpy.prn_file.Prn" href="prn_file.html#magpy.prn_file.Prn">Prn</a>, timeout: int = 3000) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Send a print job <code>Prn</code> to a printer.</p>
+<p>Note that this method can be used to send any <code>Prn</code> to the printer, not
+just print jobs. However, this is discouraged, as this method will not
+consume the response, which can lead to communication errors while
+executing subsequent commands due to the printer's responses being
+received out of order.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>job</code></strong></dt>
+<dd>The print job to send.</dd>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+managed to send the print job.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.set"><code class="name flex">
+<span>def <span class="ident">set</span></span>(<span>self, settings: Union[<a title="magpy.Settings" href="index.html#magpy.Settings">Settings</a>, str], value: str = None, timeout: int = 3000) ‑> Union[<a title="magpy.Settings" href="index.html#magpy.Settings">Settings</a>, str]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Write one or multiple settings to the printer and return their
+resultant value(s).</p>
+<p>Note that the settings that can be written on a printer are outlined in
+<a href="index.html#printer-settings">Printer Settings</a>.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>settings</code></strong></dt>
+<dd>The setting(s) to write.</dd>
+<dt><strong><code>value</code></strong></dt>
+<dd>The value of the setting to write. Note this is only
+applicable when writing a single setting.</dd>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+received a response.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>The resultant setting(s) after the write.</p>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.start_clean_rollers"><code class="name flex">
+<span>def <span class="ident">start_clean_rollers</span></span>(<span>self, timeout: int = 3000) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Start the printer's cleaning routine.</p>
+<p>Note that the printer issues a response to this command immediately
+(and therefore this method returns immediately), before then starting
+the cleaning process, which can be stopped at any time via the
+<code><a title="magpy.printer.Printer.stop_clean_rollers" href="#magpy.printer.Printer.stop_clean_rollers">Printer.stop_clean_rollers()</a></code> method, or can be waited upon to finish
+using the <code><a title="magpy.printer.Printer.wait_for_printer" href="#magpy.printer.Printer.wait_for_printer">Printer.wait_for_printer()</a></code> method.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+received a response.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.start_rollers"><code class="name flex">
+<span>def <span class="ident">start_rollers</span></span>(<span>self, direction: Union[<a title="magpy.RollerDirection" href="index.html#magpy.RollerDirection">RollerDirection</a>, str], timeout: int = 3000) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Start moving the printer's rollers either forwards or backwards.</p>
+<p>Note that the printer's rollers can be stopped via the
+<code><a title="magpy.printer.Printer.stop_rollers" href="#magpy.printer.Printer.stop_rollers">Printer.stop_rollers()</a></code> method, or they will stop automatically after
+around 10 seconds.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>direction</code></strong></dt>
+<dd>The direction in which to start moving the rollers.</dd>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+received a response.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.start_soak_test"><code class="name flex">
+<span>def <span class="ident">start_soak_test</span></span>(<span>self, type: Union[<a title="magpy.SoakTest" href="index.html#magpy.SoakTest">SoakTest</a>, str], timeout: int = 3000) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Start one of the printer's soak test routines.</p>
+<p>Note that the printer issues a response to this command immediately
+(and therefore this method returns immediately), before then starting
+the soak routine, which can be stopped at any time via the
+<code><a title="magpy.printer.Printer.stop_soak_test" href="#magpy.printer.Printer.stop_soak_test">Printer.stop_soak_test()</a></code> method, or can be waited upon to finish
+using the <code><a title="magpy.printer.Printer.wait_for_printer" href="#magpy.printer.Printer.wait_for_printer">Printer.wait_for_printer()</a></code> method.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>type</code></strong></dt>
+<dd>The type of soak test to perform.</dd>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+received a response.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.stop_clean_rollers"><code class="name flex">
+<span>def <span class="ident">stop_clean_rollers</span></span>(<span>self, timeout: int = 3000) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Stop the cleaning routine currently being executed by the printer.</p>
+<p>Note that if the printer isn't currently executing a cleaning routine,
+this method is silently ignored.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+received a response.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.stop_rollers"><code class="name flex">
+<span>def <span class="ident">stop_rollers</span></span>(<span>self, timeout: int = 3000) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Stop moving the printer's rollers.</p>
+<p>This method only stops the printer's rollers if they were started via a
+call to <code><a title="magpy.printer.Printer.start_rollers" href="#magpy.printer.Printer.start_rollers">Printer.start_rollers()</a></code> - they will not stop if the printer
+is performing a print job for example.</p>
+<p>Note that if the printer isn't currently moving its rollers as a result
+of the <code><a title="magpy.printer.Printer.start_rollers" href="#magpy.printer.Printer.start_rollers">Printer.start_rollers()</a></code> method, this method is silently
+ignored.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+received a response.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.stop_soak_test"><code class="name flex">
+<span>def <span class="ident">stop_soak_test</span></span>(<span>self, timeout: int = 3000) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Stop the soak test routine currently being executed by the printer.</p>
+<p>Note that if the printer isn't currently executing a soak routine,
+this method is silently ignored.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+received a response.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.test_print"><code class="name flex">
+<span>def <span class="ident">test_print</span></span>(<span>self, id: Union[<a title="magpy.TestPrint" href="index.html#magpy.TestPrint">TestPrint</a>, str], timeout: int = 8000) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Print one of the internally generated test cards.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>id</code></strong></dt>
+<dd>The ID of the test print to perform.</dd>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+received a response.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.update_capability"><code class="name flex">
+<span>def <span class="ident">update_capability</span></span>(<span>self, update_data: bytes, timeout: int = 3000) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Update one of the printer's capability flags using an encrypted
+capability update file supplied by Magicard, or one of its authorised
+distributors.</p>
+<p>Note that settings in
+<a href="index.html#identity-information">Identity Information</a> that start with
+<code>id-capability-</code> are the printer's capability flags, and as such can be
+read to establish the printer's current capabilities.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>update_data</code></strong></dt>
+<dd>The encrypted capability update data, provided by
+Magicard or one of its authorised distributors.</dd>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+received a response.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.update_holokote"><code class="name flex">
+<span>def <span class="ident">update_holokote</span></span>(<span>self, slot: int, jfif_data: bytes, timeout: int = 3000) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Update the printer's HoloKote image in the specified slot, using an
+encrypted JFIF file supplied by Magicard, or one of its authorised
+distributors.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>slots</code></strong></dt>
+<dd>The slot number of the HoloKote to update.</dd>
+<dt><strong><code>jfif_data</code></strong></dt>
+<dd>The encrypted JFIF data, supplied by Magicard or one of
+its authorised distributors.</dd>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time, in ms, to wait before timing out if we haven't
+received a response.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+<dt id="magpy.printer.Printer.wait_for_printer"><code class="name flex">
+<span>def <span class="ident">wait_for_printer</span></span>(<span>self, timeout: int) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Wait for the printer to become idle.</p>
+<p>This method will not return until the printer becomes idle, i.e. until
+it is not performing any of the following:</p>
+<ul>
+<li>Executing a print job.</li>
+<li>Executing a <code><a title="magpy.printer.Printer.card_move" href="#magpy.printer.Printer.card_move">Printer.card_move()</a></code>, <code><a title="magpy.printer.Printer.mag_read" href="#magpy.printer.Printer.mag_read">Printer.mag_read()</a></code>,
+<code><a title="magpy.printer.Printer.mag_read_raw" href="#magpy.printer.Printer.mag_read_raw">Printer.mag_read_raw()</a></code>, or a <code><a title="magpy.printer.Printer.set" href="#magpy.printer.Printer.set">Printer.set()</a></code> method.</li>
+<li>Reinitialising the print engine, e.g while clearing an error.</li>
+<li>Winding the rollers.</li>
+<li>Performing a cleaning cycle.</li>
+<li>Performing a soak routine.</li>
+<li>Updating the system software.</li>
+<li>Performing a specialising Engineering test routine, reserved for
+internal use.</li>
+</ul>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>The time to wait, in ms, for the printer to become idle.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<p><code><a title="magpy.connection.ConnectionError" href="connection/index.html#magpy.connection.ConnectionError">ConnectionError</a></code>: If an error occured during
+comms with the printer.</p>
+<p><code><a title="magpy.prn_file.PrnParseError" href="prn_file.html#magpy.prn_file.PrnParseError">PrnParseError</a></code>: If an unexpected response is
+received from the printer.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="magpy" href="index.html">magpy</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="magpy.printer.Printer" href="#magpy.printer.Printer">Printer</a></code></h4>
+<ul class="">
+<li><code><a title="magpy.printer.Printer.calibrate_dye_ctrl" href="#magpy.printer.Printer.calibrate_dye_ctrl">calibrate_dye_ctrl</a></code></li>
+<li><code><a title="magpy.printer.Printer.cancel_print_job" href="#magpy.printer.Printer.cancel_print_job">cancel_print_job</a></code></li>
+<li><code><a title="magpy.printer.Printer.card_move" href="#magpy.printer.Printer.card_move">card_move</a></code></li>
+<li><code><a title="magpy.printer.Printer.dye_led_test" href="#magpy.printer.Printer.dye_led_test">dye_led_test</a></code></li>
+<li><code><a title="magpy.printer.Printer.error_clear" href="#magpy.printer.Printer.error_clear">error_clear</a></code></li>
+<li><code><a title="magpy.printer.Printer.error_if_film_present" href="#magpy.printer.Printer.error_if_film_present">error_if_film_present</a></code></li>
+<li><code><a title="magpy.printer.Printer.force_error" href="#magpy.printer.Printer.force_error">force_error</a></code></li>
+<li><code><a title="magpy.printer.Printer.get" href="#magpy.printer.Printer.get">get</a></code></li>
+<li><code><a title="magpy.printer.Printer.get_holokote_preview" href="#magpy.printer.Printer.get_holokote_preview">get_holokote_preview</a></code></li>
+<li><code><a title="magpy.printer.Printer.get_limits" href="#magpy.printer.Printer.get_limits">get_limits</a></code></li>
+<li><code><a title="magpy.printer.Printer.get_print_preview" href="#magpy.printer.Printer.get_print_preview">get_print_preview</a></code></li>
+<li><code><a title="magpy.printer.Printer.get_report" href="#magpy.printer.Printer.get_report">get_report</a></code></li>
+<li><code><a title="magpy.printer.Printer.keep_alive" href="#magpy.printer.Printer.keep_alive">keep_alive</a></code></li>
+<li><code><a title="magpy.printer.Printer.load" href="#magpy.printer.Printer.load">load</a></code></li>
+<li><code><a title="magpy.printer.Printer.mag_read" href="#magpy.printer.Printer.mag_read">mag_read</a></code></li>
+<li><code><a title="magpy.printer.Printer.mag_read_raw" href="#magpy.printer.Printer.mag_read_raw">mag_read_raw</a></code></li>
+<li><code><a title="magpy.printer.Printer.move_cam" href="#magpy.printer.Printer.move_cam">move_cam</a></code></li>
+<li><code><a title="magpy.printer.Printer.move_dye" href="#magpy.printer.Printer.move_dye">move_dye</a></code></li>
+<li><code><a title="magpy.printer.Printer.move_flip" href="#magpy.printer.Printer.move_flip">move_flip</a></code></li>
+<li><code><a title="magpy.printer.Printer.power_down" href="#magpy.printer.Printer.power_down">power_down</a></code></li>
+<li><code><a title="magpy.printer.Printer.printhead_fan_test" href="#magpy.printer.Printer.printhead_fan_test">printhead_fan_test</a></code></li>
+<li><code><a title="magpy.printer.Printer.send_print_job" href="#magpy.printer.Printer.send_print_job">send_print_job</a></code></li>
+<li><code><a title="magpy.printer.Printer.set" href="#magpy.printer.Printer.set">set</a></code></li>
+<li><code><a title="magpy.printer.Printer.start_clean_rollers" href="#magpy.printer.Printer.start_clean_rollers">start_clean_rollers</a></code></li>
+<li><code><a title="magpy.printer.Printer.start_rollers" href="#magpy.printer.Printer.start_rollers">start_rollers</a></code></li>
+<li><code><a title="magpy.printer.Printer.start_soak_test" href="#magpy.printer.Printer.start_soak_test">start_soak_test</a></code></li>
+<li><code><a title="magpy.printer.Printer.stop_clean_rollers" href="#magpy.printer.Printer.stop_clean_rollers">stop_clean_rollers</a></code></li>
+<li><code><a title="magpy.printer.Printer.stop_rollers" href="#magpy.printer.Printer.stop_rollers">stop_rollers</a></code></li>
+<li><code><a title="magpy.printer.Printer.stop_soak_test" href="#magpy.printer.Printer.stop_soak_test">stop_soak_test</a></code></li>
+<li><code><a title="magpy.printer.Printer.test_print" href="#magpy.printer.Printer.test_print">test_print</a></code></li>
+<li><code><a title="magpy.printer.Printer.update_capability" href="#magpy.printer.Printer.update_capability">update_capability</a></code></li>
+<li><code><a title="magpy.printer.Printer.update_holokote" href="#magpy.printer.Printer.update_holokote">update_holokote</a></code></li>
+<li><code><a title="magpy.printer.Printer.wait_for_printer" href="#magpy.printer.Printer.wait_for_printer">wait_for_printer</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

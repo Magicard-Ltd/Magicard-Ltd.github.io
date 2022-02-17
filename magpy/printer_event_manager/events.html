@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>magpy.printer_event_manager.events API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9;--table-border-color:hsl(0,0%,95%);--table-alternate-bg:hsl(0,0%,97%);--table-header-bg:hsl(0,0%,80%)}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}table{margin:0 auto;border-collapse:collapse;width:100%}table td{padding:3px 10px;border:1px var(--table-border-color) solid}table thead{background:var(--table-header-bg);white-space:nowrap}table thead td{font-weight:700;border:none}table thead th{padding:3px 20px}table thead tr{border:1px var(--table-header-bg) solid}table tbody tr:nth-child(2n){background:var(--table-alternate-bg)}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML" integrity="sha256-kZafAc6mZvK3W3v1pHOcUix30OHQN6pU/NO2oFkqZVw=" crossorigin></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>magpy.printer_event_manager.events</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-variables">Global variables</h2>
+<dl>
+<dt id="magpy.printer_event_manager.events.EventHandler"><code class="name">var <span class="ident">EventHandler</span></code></dt>
+<dd>
+<div class="desc"><p>A function that handles a printer event.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>params</code></strong></dt>
+<dd>The printer event's EventData</dd>
+</dl></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="magpy.printer_event_manager.events.EventData"><code class="flex name class">
+<span>class <span class="ident">EventData</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class that represents printer event parameters.</p>
+<p>Effectively a list of bytes-like objects.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.list</li>
+<li>typing.Generic</li>
+</ul>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId"><code class="flex name class">
+<span>class <span class="ident">EventId</span></span>
+<span>(</span><span>_: int, arg_count: int = 0)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Event Ids codes.</p>
+<p>Taken from the 'Rio Pro 2 asynchronous event stream' page on Confluence.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="magpy.printer_event_manager.events.EventId.ACCESS_LEVEL_CHANGED"><code class="name">var <span class="ident">ACCESS_LEVEL_CHANGED</span></code></dt>
+<dd>
+<div class="desc"><p>The printer's access level just changed.</p>
+<h2 id="args">Args</h2>
+<p><strong>Arg 1</strong>: Access level code.</p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.CALIBRATION_COMPLETE"><code class="name">var <span class="ident">CALIBRATION_COMPLETE</span></code></dt>
+<dd>
+<div class="desc"><p>The printer just finished calibrating the dye control mechanism.</p>
+<h2 id="args">Args</h2>
+<p><em>None</em></p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.CALIBRATION_STARTED"><code class="name">var <span class="ident">CALIBRATION_STARTED</span></code></dt>
+<dd>
+<div class="desc"><p>The printer just started calibrating the dye control mechanism.</p>
+<h2 id="args">Args</h2>
+<p><em>None</em></p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.CAPABILITY_CHANGED"><code class="name">var <span class="ident">CAPABILITY_CHANGED</span></code></dt>
+<dd>
+<div class="desc"><p>The printer's capabilities just changed.</p>
+<h2 id="args">Args</h2>
+<p><strong>Arg 1</strong>: Duo capability - 0 if Duo is not enabled, otherwise Duo is
+enabled.</p>
+<p><strong>Arg 2</strong>: Mag capability - 0 if Mag is not enabled, otheriwise Mag is
+enabled.</p>
+<p><strong>Arg 3</strong>: Smart capability - 0 if Smart is not enabled, otherwise Smart
+is enabled.</p>
+<p><strong>Arg 4</strong>: 600 DPI capability - 0 if 600 DPI is not enabled, otherwise
+600 DPI is enabled.</p>
+<p><strong>Arg 5</strong>: WiFi capability - 0 if WiFi is not enabled, otheriwise WiFi
+is enabled.</p>
+<p><strong>Arg 6</strong>: Web UI capability - 0 if Web UI is not enabled, otherwise
+Web UI is enabled.</p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.CARD_EJECTED"><code class="name">var <span class="ident">CARD_EJECTED</span></code></dt>
+<dd>
+<div class="desc"><p>The card has been ejected from the platen. On a hand-fed model, the card
+is now ready for the user to remove it.</p>
+<h2 id="args">Args</h2>
+<p><em>None</em></p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.CARD_REMOVED"><code class="name">var <span class="ident">CARD_REMOVED</span></code></dt>
+<dd>
+<div class="desc"><p>The card has been removed from the eject slot by the user (hand-fed
+models only).</p>
+<h2 id="args">Args</h2>
+<p><em>None</em></p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.CLEANING_CARD_MISSING"><code class="name">var <span class="ident">CLEANING_CARD_MISSING</span></code></dt>
+<dd>
+<div class="desc"><p>The cleaning card was not present when expected.</p>
+<h2 id="args">Args</h2>
+<p><em>None</em></p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.CLEANING_CARD_OBTAINED"><code class="name">var <span class="ident">CLEANING_CARD_OBTAINED</span></code></dt>
+<dd>
+<div class="desc"><p>The printer has successfully fed in a cleaning card.</p>
+<h2 id="args">Args</h2>
+<p><em>None</em></p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.CLEAN_COMPLETE"><code class="name">var <span class="ident">CLEAN_COMPLETE</span></code></dt>
+<dd>
+<div class="desc"><p>The printer just completed a cleaning routine.</p>
+<h2 id="args">Args</h2>
+<p><em>None</em></p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.CLEAN_STARTED"><code class="name">var <span class="ident">CLEAN_STARTED</span></code></dt>
+<dd>
+<div class="desc"><p>The printer just started to perform a cleaning routine.</p>
+<h2 id="args">Args</h2>
+<p><em>None</em></p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.COPY_STARTED"><code class="name">var <span class="ident">COPY_STARTED</span></code></dt>
+<dd>
+<div class="desc"><p>The printer just started to execute a single copy of a print job.</p>
+<h2 id="args">Args</h2>
+<p><strong>Arg 1</strong>: 0 for a hand fed copy, otherwise the copy if hopper fed.</p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.DYE_FILM_LOW"><code class="name">var <span class="ident">DYE_FILM_LOW</span></code></dt>
+<dd>
+<div class="desc"><p>Following a print job, the dye film level dropped below the programmed
+threshold.</p>
+<h2 id="args">Args</h2>
+<p><strong>Arg 1</strong>: The tag UID.
+Unsigned 64-bit int represented in decimal.</p>
+<p><strong>Arg 2</strong>: The number of prints remaining on the dye film RFID tag.
+Unsigned 32-bit int represented in decimal.</p>
+<p><strong>Arg 3</strong>: The initial number of prints on the dye film RFID tag (total
+shots). Unsigned 32-bit int represented in decimal.</p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.ENCODING_STARTED"><code class="name">var <span class="ident">ENCODING_STARTED</span></code></dt>
+<dd>
+<div class="desc"><p>The printer just started to encode a magstripe.</p>
+<h2 id="args">Args</h2>
+<p><em>None</em></p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.ENGINE_INIT_COMPLETE"><code class="name">var <span class="ident">ENGINE_INIT_COMPLETE</span></code></dt>
+<dd>
+<div class="desc"><p>The printer just finished initialising the print engine.</p>
+<h2 id="args">Args</h2>
+<p><em>None</em></p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.ENGINE_INIT_STARTED"><code class="name">var <span class="ident">ENGINE_INIT_STARTED</span></code></dt>
+<dd>
+<div class="desc"><p>The printer just start to initialise the print engine.</p>
+<h2 id="args">Args</h2>
+<p><em>None</em></p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.ERROR_CLEARED"><code class="name">var <span class="ident">ERROR_CLEARED</span></code></dt>
+<dd>
+<div class="desc"><p>The printer just cleared an error.</p>
+<h2 id="args">Args</h2>
+<p><strong>Arg 1</strong>: 0 if the error was cleared by cancel, otherwise it was
+cleared by retry.</p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.ERROR_RAISED"><code class="name">var <span class="ident">ERROR_RAISED</span></code></dt>
+<dd>
+<div class="desc"><p>The printer just raised an error.</p>
+<h2 id="args">Args</h2>
+<p><strong>Arg 1</strong>: Major error code.</p>
+<p><strong>Arg 2</strong>: Minor error code.</p>
+<p><strong>Arg 3</strong>: 0 if the error has no cancel, otherwise the error has cancel.</p>
+<p><strong>Arg 4</strong>: 0 if the error has no retry, otherwise the error has retry.</p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.JOB_COMPLETE"><code class="name">var <span class="ident">JOB_COMPLETE</span></code></dt>
+<dd>
+<div class="desc"><p>The printer just completed a job.</p>
+<h2 id="args">Args</h2>
+<p><em>None</em></p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.LANGUAGE_CHANGED"><code class="name">var <span class="ident">LANGUAGE_CHANGED</span></code></dt>
+<dd>
+<div class="desc"><p>The printer's language just changed.</p>
+<h2 id="args">Args</h2>
+<p><strong>Arg 1</strong>: Language code - specified as a two-letter 'alpha-2' code in
+accordance with ISO 639. Maximum length 10 characters.</p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.LID_CLOSED"><code class="name">var <span class="ident">LID_CLOSED</span></code></dt>
+<dd>
+<div class="desc"><p>The printer just detected that the lid was closed.</p>
+<h2 id="args">Args</h2>
+<p><em>None</em></p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.LID_OPENED"><code class="name">var <span class="ident">LID_OPENED</span></code></dt>
+<dd>
+<div class="desc"><p>The printer just detected that the lid was opened.</p>
+<h2 id="args">Args</h2>
+<p><em>None</em></p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.PANEL_STARTED"><code class="name">var <span class="ident">PANEL_STARTED</span></code></dt>
+<dd>
+<div class="desc"><p>The printer just started to print a panel.</p>
+<h2 id="args">Args</h2>
+<p><strong>Arg 1</strong>: Panel code - y = yellow, m = magenta, c = cyan, k = resin,
+o = overcoat.</p>
+<p><strong>Arg 2</strong>: Side code - 0 = front, 1 = rear.</p>
+<p><strong>Arg 3</strong>: Facet number.</p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.PRINTER_APP_INIT_COMPLETE"><code class="name">var <span class="ident">PRINTER_APP_INIT_COMPLETE</span></code></dt>
+<dd>
+<div class="desc"><p>The printer application just completed initialising.</p>
+<h2 id="args">Args</h2>
+<p><em>None</em></p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.PRINTER_ENTERING_STANDBY"><code class="name">var <span class="ident">PRINTER_ENTERING_STANDBY</span></code></dt>
+<dd>
+<div class="desc"><p>The printer is entering standby mode.</p>
+<h2 id="args">Args</h2>
+<p><em>None</em></p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.PRINTER_LEAVING_STANDBY"><code class="name">var <span class="ident">PRINTER_LEAVING_STANDBY</span></code></dt>
+<dd>
+<div class="desc"><p>The printer is leaving standby mode.</p>
+<h2 id="args">Args</h2>
+<p><em>None</em></p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.PRINTER_SHUTTING_DOWN"><code class="name">var <span class="ident">PRINTER_SHUTTING_DOWN</span></code></dt>
+<dd>
+<div class="desc"><p>The printer just started the shut down process.</p>
+<h2 id="args">Args</h2>
+<p><em>None</em></p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.REWRITE_STARTED"><code class="name">var <span class="ident">REWRITE_STARTED</span></code></dt>
+<dd>
+<div class="desc"><p>The printer just started a rewrite operation.</p>
+<h2 id="args">Args</h2>
+<p><em>None</em></p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.SOAK_CYCLE_COMPLETE"><code class="name">var <span class="ident">SOAK_CYCLE_COMPLETE</span></code></dt>
+<dd>
+<div class="desc"><p>The printer just completed a single soak test cycle.</p>
+<h2 id="args">Args</h2>
+<p><strong>Arg 1</strong>: Soak type code - 0 = printer, 1 = flipper, 2 = card feed,
+3 = encoder.</p>
+<p><strong>Arg 2</strong>: The total number of soak test cycles in this soak test, from
+0 to 65,535 inclusive.</p>
+<p><strong>Arg 3</strong>: The total number of soak test cycles completed, from 0 to
+65,535 inclusive.</p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.SOAK_TEST_COMPLETE"><code class="name">var <span class="ident">SOAK_TEST_COMPLETE</span></code></dt>
+<dd>
+<div class="desc"><p>The printer just completed an entire soak test.</p>
+<h2 id="args">Args</h2>
+<p><em>None</em></p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.SOAK_TEST_STARTED"><code class="name">var <span class="ident">SOAK_TEST_STARTED</span></code></dt>
+<dd>
+<div class="desc"><p>The printer just started to perform a soak test.</p>
+<h2 id="args">Args</h2>
+<p><strong>Arg 1</strong>: Soak type code - 0 = printer, 1 = flipper, 2 = card feed,
+3 = encoder.</p>
+<p><strong>Arg 2</strong>: The total number of soak test cycles in this soak test, from
+0 to 65,535 inclusive.</p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.TAG_COMMAND_STARTED"><code class="name">var <span class="ident">TAG_COMMAND_STARTED</span></code></dt>
+<dd>
+<div class="desc"><p>The printer just started to execute an RFID tag command.</p>
+<h2 id="args">Args</h2>
+<p><em>None</em></p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.UPDATE_COMPLETE"><code class="name">var <span class="ident">UPDATE_COMPLETE</span></code></dt>
+<dd>
+<div class="desc"><p>The printer just completed an update job.</p>
+<p>Note that the printer will reboot itself to finish the update once it's
+finished the job.</p>
+<h2 id="args">Args</h2>
+<p><em>None</em></p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.UPDATE_STARTED"><code class="name">var <span class="ident">UPDATE_STARTED</span></code></dt>
+<dd>
+<div class="desc"><p>The printer just started an update job.</p>
+<h2 id="args">Args</h2>
+<p><em>None</em></p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventId.WIFI_DONGLE_CONNECTION"><code class="name">var <span class="ident">WIFI_DONGLE_CONNECTION</span></code></dt>
+<dd>
+<div class="desc"><p>A WiFi dongle was just connected or disconnected</p>
+<h2 id="args">Args</h2>
+<p><strong>Arg 1</strong>: 0 if the dongle was just connected, otherwise it was just
+disconnected.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventStream"><code class="flex name class">
+<span>class <span class="ident">EventStream</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class that streams RP2 printer events.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>abc.ABC</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="magpy.printer_event_manager.network_event_stream.NetworkEventStream" href="network_event_stream.html#magpy.printer_event_manager.network_event_stream.NetworkEventStream">NetworkEventStream</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="magpy.printer_event_manager.events.EventStream.connect"><code class="name flex">
+<span>def <span class="ident">connect</span></span>(<span>self) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Attempt to connect to the event stream.</p>
+<p>This method MUST be invoked in a derived class.</p>
+<h2 id="return">Return</h2>
+<p><code>True</code> if, and only if, we sucessfully connected.</p></div>
+</dd>
+<dt id="magpy.printer_event_manager.events.EventStream.events"><code class="name flex">
+<span>def <span class="ident">events</span></span>(<span>self, stop_check: Callable[[], bool]) ‑> Iterator[bytes]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Read event packets until we're told to stop.</p>
+<p>Reads event packets into a Generator until a predicate function,
+'stop_check', returns True.</p>
+<p>This method MUST be invoked in a derived class.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>stop_check</code></strong></dt>
+<dd>The predicate function that tells us when to stop.</dd>
+</dl>
+<h2 id="yields">Yields</h2>
+<p>Event packets.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="magpy.printer_event_manager" href="index.html">magpy.printer_event_manager</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-variables">Global variables</a></h3>
+<ul class="">
+<li><code><a title="magpy.printer_event_manager.events.EventHandler" href="#magpy.printer_event_manager.events.EventHandler">EventHandler</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="magpy.printer_event_manager.events.EventData" href="#magpy.printer_event_manager.events.EventData">EventData</a></code></h4>
+</li>
+<li>
+<h4><code><a title="magpy.printer_event_manager.events.EventId" href="#magpy.printer_event_manager.events.EventId">EventId</a></code></h4>
+<ul class="">
+<li><code><a title="magpy.printer_event_manager.events.EventId.ACCESS_LEVEL_CHANGED" href="#magpy.printer_event_manager.events.EventId.ACCESS_LEVEL_CHANGED">ACCESS_LEVEL_CHANGED</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.CALIBRATION_COMPLETE" href="#magpy.printer_event_manager.events.EventId.CALIBRATION_COMPLETE">CALIBRATION_COMPLETE</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.CALIBRATION_STARTED" href="#magpy.printer_event_manager.events.EventId.CALIBRATION_STARTED">CALIBRATION_STARTED</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.CAPABILITY_CHANGED" href="#magpy.printer_event_manager.events.EventId.CAPABILITY_CHANGED">CAPABILITY_CHANGED</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.CARD_EJECTED" href="#magpy.printer_event_manager.events.EventId.CARD_EJECTED">CARD_EJECTED</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.CARD_REMOVED" href="#magpy.printer_event_manager.events.EventId.CARD_REMOVED">CARD_REMOVED</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.CLEANING_CARD_MISSING" href="#magpy.printer_event_manager.events.EventId.CLEANING_CARD_MISSING">CLEANING_CARD_MISSING</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.CLEANING_CARD_OBTAINED" href="#magpy.printer_event_manager.events.EventId.CLEANING_CARD_OBTAINED">CLEANING_CARD_OBTAINED</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.CLEAN_COMPLETE" href="#magpy.printer_event_manager.events.EventId.CLEAN_COMPLETE">CLEAN_COMPLETE</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.CLEAN_STARTED" href="#magpy.printer_event_manager.events.EventId.CLEAN_STARTED">CLEAN_STARTED</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.COPY_STARTED" href="#magpy.printer_event_manager.events.EventId.COPY_STARTED">COPY_STARTED</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.DYE_FILM_LOW" href="#magpy.printer_event_manager.events.EventId.DYE_FILM_LOW">DYE_FILM_LOW</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.ENCODING_STARTED" href="#magpy.printer_event_manager.events.EventId.ENCODING_STARTED">ENCODING_STARTED</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.ENGINE_INIT_COMPLETE" href="#magpy.printer_event_manager.events.EventId.ENGINE_INIT_COMPLETE">ENGINE_INIT_COMPLETE</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.ENGINE_INIT_STARTED" href="#magpy.printer_event_manager.events.EventId.ENGINE_INIT_STARTED">ENGINE_INIT_STARTED</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.ERROR_CLEARED" href="#magpy.printer_event_manager.events.EventId.ERROR_CLEARED">ERROR_CLEARED</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.ERROR_RAISED" href="#magpy.printer_event_manager.events.EventId.ERROR_RAISED">ERROR_RAISED</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.JOB_COMPLETE" href="#magpy.printer_event_manager.events.EventId.JOB_COMPLETE">JOB_COMPLETE</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.LANGUAGE_CHANGED" href="#magpy.printer_event_manager.events.EventId.LANGUAGE_CHANGED">LANGUAGE_CHANGED</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.LID_CLOSED" href="#magpy.printer_event_manager.events.EventId.LID_CLOSED">LID_CLOSED</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.LID_OPENED" href="#magpy.printer_event_manager.events.EventId.LID_OPENED">LID_OPENED</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.PANEL_STARTED" href="#magpy.printer_event_manager.events.EventId.PANEL_STARTED">PANEL_STARTED</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.PRINTER_APP_INIT_COMPLETE" href="#magpy.printer_event_manager.events.EventId.PRINTER_APP_INIT_COMPLETE">PRINTER_APP_INIT_COMPLETE</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.PRINTER_ENTERING_STANDBY" href="#magpy.printer_event_manager.events.EventId.PRINTER_ENTERING_STANDBY">PRINTER_ENTERING_STANDBY</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.PRINTER_LEAVING_STANDBY" href="#magpy.printer_event_manager.events.EventId.PRINTER_LEAVING_STANDBY">PRINTER_LEAVING_STANDBY</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.PRINTER_SHUTTING_DOWN" href="#magpy.printer_event_manager.events.EventId.PRINTER_SHUTTING_DOWN">PRINTER_SHUTTING_DOWN</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.REWRITE_STARTED" href="#magpy.printer_event_manager.events.EventId.REWRITE_STARTED">REWRITE_STARTED</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.SOAK_CYCLE_COMPLETE" href="#magpy.printer_event_manager.events.EventId.SOAK_CYCLE_COMPLETE">SOAK_CYCLE_COMPLETE</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.SOAK_TEST_COMPLETE" href="#magpy.printer_event_manager.events.EventId.SOAK_TEST_COMPLETE">SOAK_TEST_COMPLETE</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.SOAK_TEST_STARTED" href="#magpy.printer_event_manager.events.EventId.SOAK_TEST_STARTED">SOAK_TEST_STARTED</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.TAG_COMMAND_STARTED" href="#magpy.printer_event_manager.events.EventId.TAG_COMMAND_STARTED">TAG_COMMAND_STARTED</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.UPDATE_COMPLETE" href="#magpy.printer_event_manager.events.EventId.UPDATE_COMPLETE">UPDATE_COMPLETE</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.UPDATE_STARTED" href="#magpy.printer_event_manager.events.EventId.UPDATE_STARTED">UPDATE_STARTED</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventId.WIFI_DONGLE_CONNECTION" href="#magpy.printer_event_manager.events.EventId.WIFI_DONGLE_CONNECTION">WIFI_DONGLE_CONNECTION</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="magpy.printer_event_manager.events.EventStream" href="#magpy.printer_event_manager.events.EventStream">EventStream</a></code></h4>
+<ul class="">
+<li><code><a title="magpy.printer_event_manager.events.EventStream.connect" href="#magpy.printer_event_manager.events.EventStream.connect">connect</a></code></li>
+<li><code><a title="magpy.printer_event_manager.events.EventStream.events" href="#magpy.printer_event_manager.events.EventStream.events">events</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>
